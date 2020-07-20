@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: white;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+}
+
+p {
+  font-family: verdana;
+  font-size: 20px;}
+  
+b {
+  font-family: sans-serif;
+}
+
+div {
+  padding: 10px;
+  border: 1px dashed;
+  text-align: center;
+}
+
+object {
+  padding: 10px;
+  border: 1px dashed;
+  text-align: center;
+}
+
+.static {
+  position: static;
+  height: 750px;
+  background-color: #ffc;
+  border-color: #996;
+}
+
+.absolute {
+  position: absolute;
+  width: 1800px;
+  height: 750px;
+  background-color: #fdd;
+  border-color: #900;
+  opacity: 0.7;
+}
+
+.relative {
+  position: relative;
+  width: 1800px;
+  height: 750px;
+  background-color: #cfc;
+  border-color: #696;
+  opacity: 0.7;
+}
+
+#abs1 {
+  top: 10px;
+  left: 10px;
+}
+
+#rel1 {
+  top: 30px;
+  margin: 0px 50px 0px 50px;
+}
+
+#rel2 {
+  top: 15px;
+  left: 20px;
+  margin: 0px 50px 0px 50px;
+}
+
+#abs2 {
+  top: 10px;
+  right: 10px;
+}
+
+#sta1 {
+  background-color: #ffc;
+  margin: 0px 50px 0px 50px;
+}
+
+.parallax {
+  /* The image used */
+  /* Set a specific height */
+  height: 750px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+</head>
+<body>
+<p>
+<!-- solution qui n'a pas marché
+<iframe src="PDF/1.pdf" width="100%" height="500px"></iframe></p>
+-->
+
+<object id="abs1" class="absolute" data="1/UTF-8_noframes/Gold.html" type="text/html">
+  <embed src="1/UTF-8_noframes/Gold.html" type="text/html" />
+</object>
+<object id="abs2" class="absolute" data="2/UTF-8_noframes/Bon.html" style="border-color: #696" type="text/html">
+<embed src="2/UTF-8_noframes/Bon.html" type="text/html" />
+</object>
+
+<div class="parallax"></div>
+
+<!--
+<div id="abs1" class="absolute">
+
+  In 1969 the conceptual artist Douglas Huebler wrote, “The world is full of objects, more or less
+interesting; I do not wish to add any more.” 1 I’ve come to embrace Huebler’s ideas, though it might be
+retooled as “The world is full of texts, more or less interesting; I do not wish to add any more.” It seems
+an appropriate response to a new condition in writing today: faced with an unprecedented amount of
+available text, the problem is not needing to write more of it; instead, we must learn to negotiate the vast
+quantity that exists. How I make my way through this thicket of information—how I manage it, how I parse
+it, how I organize and distribute it—is what distinguishes my writing from yours.</div>
+
+<div id="abs2" class="absolute">« Le monde est rempli d’objets plus ou moins intéressants, je n’ai
+aucune envie de lui en faire supporter un de plus », déclare en 1969
+l’artiste conceptuel Douglas Huebler 1 . J’en suis venu à adopter son
+idée, mais en la reformulant ainsi : « Le monde est rempli de textes,
+plus ou moins intéressants ; je n’ai aucune envie de lui en
+ajouter un de plus. » Cela semble la réponse qu’exige la
+nouvelle condition de l’écriture aujourd’hui : face à une
+quantité accessible de texte sans aucun précédent, le pro-
+blème n’est pas d’en écrire plus ; plutôt d’apprendre à négo-
+cier avec ce gigantesque amas existant. Comment je me
+fraye mon chemin dans ce maquis d’information
+– comment je le gère, comment je l’analyse et le distribue –
+change la langue et suppose des
+voilà ce qui distingue mon écriture de la vôtre.</div>
+<div id="sta1" class="static">
+  <b>DIV #5</b><br />position: static;</div>
+-->
+</body>
+</html>
+

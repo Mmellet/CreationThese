@@ -1,5 +1,25 @@
 <!DOCTYPE html>
 <html>
+
+
+<head>
+
+<script>
+  wbinfo = {}
+  wbinfo.url = "https://mmellet.github.io/CreationThese/Version.html";
+  wbinfo.timestamp = "20200720215953";
+  wbinfo.request_ts = "";
+  wbinfo.prefix = "https://via.hypothes.is/";
+  wbinfo.mod = "";
+  wbinfo.top_url = "https://via.hypothes.is/https://mmellet.github.io/CreationThese/Version.html";
+  wbinfo.is_framed = false;
+  wbinfo.is_live = true;
+  wbinfo.coll = "";
+  wbinfo.proxy_magic = "";
+  wbinfo.static_prefix = "https://via.hypothes.is/static/__pywb";
+</script>
+</head>
+
 <style type="text/css" media="screen">
 
 
@@ -365,7 +385,21 @@ div.meta {
   display: none;
 top: 20%;
 opacity: 80%;
+}
 
+div.miroir {
+display: inline-block;
+width:100%;
+}
+
+div.left {
+	float: left;
+width:50%;
+}
+
+div.right {
+	float: right;
+width:50%;
 }
 
 object:hover + div.meta {
@@ -387,6 +421,50 @@ line-height: 1.8;
 </head>
 <body>
 
+<h1>Volet Création : Tentative d’épuisement d’un média numérique par le détournement d’objets littéraires</h1>
+
+<h2>Problématique</h2>
+
+<blockquote>
+Qu’est-ce que le cerveau humain, sinon un palimpseste immense et naturel ? […] Des couches innombrables d’idées, d’images, de sentiments sont tombées successivement sur votre cerveau, aussi doucement que la lumière. Il a semblé que chacune ensevelissait la précédente. Mais aucune en réalité n’a péri. (Baudelaire, Les Paradis artificiels, VIII, p. 329)
+</blockquote>
+
+<p>Le geste du palimpseste est une focale sur le support (qu’il soit papier, terre, pierre, neuronal) en ce qu’il implique un processus de superposition d’une écriture sur une écriture devenue média d’une autre écriture. Parce que le dispositif numérique fonctionne par réécritures et remédiations constantes, le dispositif du palimpseste nous permettra d’étudier les manifestations de la littérature dans les nouveaux médias et de comprendre les implications du média dans la production d’une littérature. </p>
+
+<p>Dans l’objectif de conserver le support, en vue de sa réinscription, le processus du palimpseste n’est donc pas un geste inconséquent ou irrespectueux de la matière : il engage bien au contraire une connaissance précise des caractéristiques, des réactions, des limites du média. Le palimpseste est donc un dispositif issu de pratiques, il est le résultat d’expérimentations dont la répétition a permis l’exécution d’un geste palimpsestique, qui sur-écrit mais qui ne détruit pas. C’est de cette considération que part notre démarche de création qui se propose comme des expérimentations sérielles littéraires. Ces tentatives destinées à comprendre ce que peut être un geste palimpsestique seront opérées sur différents supports (papier, nativement numérique ou numérisée) à partir d’un corpus que nous avons défini au préalable (le site Fragments, chutes et conséquences de Joachim Séné [2009], Uncreative Writing de Kenneth Golsmith [2011] et sa traduction française L’écriture sans écriture par François Bon [2018], et l’objet livre Nox d’Anne Carson [2010]), des œuvres choisies pour le rapport concrêt ou le discours qu’elles entretiennent avec une idée de la plasticité de l’écriture. La répétitione de manipulations pseudo-palimpsestique nous amènerons à observer et comprendre les mesures de saturation, d’épuisement d’une superposition.</p>
+
+<p>Notre pratique cherchera à révéler, dans la même logique que celle du palimpseste, la matière, ce qui fait du support une instance de l’énonciation littéraire. Il ne s’agit cependant pas d’essencialiser le média numérique et afin d’éviter cet écueil, nous perfomerons notre pratique également sur des supports autre que numérique comme le support papier. Notre démarche est intermédiale et souhaite procéder à une remédiation inversant une tendance de transcription : si les livres sont actuellement remédiés dans le média numérique, nous souhaitons remédier le fonctionnement du média numérique, la plasticité de sa matière par le média papier (une entreprise équivalente à la peinture photographique de Gerhard Richter).</p>
+
+<p>Il résultera de notre démarche de création plusieurs objets littéraires conçus à partir de notre corpus : ces écritures déjà médiatisées, qui tentent l’épuisement d’un média, constitueront des supports plastiques à une nouvelle écriture qui tente de performer le processus du palimpseste et d’épuiser ces mises en scènes d’épuisement (Tentative d’épuisement de Tentative d’épuisement d’un lieu parisien de Georges Perec, De Jonckheere). Nous présentons ici les débuts de ces expérimentations.</p>
+
+<h2>Corpus pour l’expérimentation : l’Uncreative Writing</h2>
+
+<p>Parmi les oeuvres de notre corpus qui thématisent le palimpseste et l’interrogent, nous avons choisi d’expérimenter d’abord sur l’Uncreative Writing de Kenneth Goldsmith1. Si la théorie de l’uncreative writing de Goldsmith propose un déplacement de la créativité du texte vers le média, il reste que la démarche de création de l’auteur (celle de, par exemple, recopier l’intégralité d’un numéro du New-York Times dans [Day]) demeure fondée sur un agencement textuel : la matière d’écriture est nouvelle et un nouveau média est, en ce sens, conçu bien qu’il s’agisse d’un message déjà édité. L’uncreative writing performée par Goldsmith n’épuise pas l’idée d’originalité de l’écriture dans sa matière, elle l’épuise dans son message. Il s’agit du même contenu que le numéro original du New York Times, comme une réédition sans enrichissement. Où se situe alors la création ? Dans le geste, provocateur, mais également incisif qui consiste à disposer différemment. Paradoxalement, la création littéraire n’est ici pas textuelle, elle est une performance qui est intéressante en tant que production d’un artefact, non d’une poétique. Or, toute nouvelle écriture, même uncreative, nécessite un nouveau média, vierge… sauf dans le procédé du palimpseste. Le palimpseste apparaît dans cette perspective être l’approche renversée de l’Uncreative Writing : le média est déjà connu (inscrit), le message est nouveau. Dans cette configuration, l’uncreative se situe du côté du media et non du writing tout en conservant la place du média et son traitement comme central dans le processus de création. La traduction de l’ouvrage de Goldsmith par François Bon confirme l’importance d’un texte au-delà d’un média tout en demeurant dans une démarche propre à l’uncreative writing dans la mesure où elle abandonne – par le principe même de traduction – la dimension de creativité. Il n’en demeure pas moins que la traduction de Bon est une proposition qui souhaite retranscrire une conception littéraire dans un nouveau système sémantique et langagier donc apporte en écriture à l’inscription originale.</p>
+
+<p>L’objectif des expérimentations qui suivent est d’épuiser, comme Goldsmith l’originalité de l’écriture, l’uncreative writing par un procédé palimpsestique, soit d’utiliser les écritures médiatisées (l’ouvrage original) comme le support d’inscription d’une écriture seconde (la traduction). </p>
+
+<h2>Description du processus</h2>
+
+<p>Notre point de départ est de considérer le dispositif palimpsestique comme le fait d’écriture sur un support fait d’écriture sans ajouter de matière motivé par la   perspective de la création d’un nouveau média. Où placer le geste du palimpseste ? Un document numérique étant généralement composé de strates de textes (code), la performance d’une écriture sur une écriture peut être établie à plusieurs niveaux :</p>
+
+<ul>
+  <li>le niveau du format du document en d&eacute;tournant ou en hackant le document</li>
+  <li>le niveau de la mise page en capturant une image du texte</li>
+  <li>le niveau du code de l&rsquor;&eacute;criture par des actions plus intrusives</li>
+</ul>
+
+<p>À quel endroit, dans quelle strate se situe ce qui constitue le texte ? À quel niveau peut-on distinguer le texte du média ? Qu’est ce qui fonde la matière d’un texte numérique ? Avec quel outil procéder à des gestes palimpsestiques ? Ces questions seront explorées par la pratique. La performance d’une écriture sur écriture souhaite aborder le dispositif sur un échantillon identique de plusieurs manières :</p>
+
+  <ul>
+  <li>superposition de deux &eacute;critures jusqu&rsquor;au code m&ecirc;me qui les g&eacute;n&egrave;re</li>
+  <li>traitement d&rsquor;une des &eacute;critures comme un support d&rsquor;&eacute;criture</li>
+  <li>intrusion dans la seconde &eacute;criture pour faire appara&icirc;tre la premi&egrave;re</li>
+  </ul>
+
+<p>La superposition peut se situer &agrave; plusieurs niveaux de l&rsquor;objet d&rsquor;origine, et du choix du niveau d&eacute;pendent la consid&eacute;ration qui est faite du m&eacute;dia litt&eacute;raire et le type de palimpseste produit.</p>
+  <p>En vu de demeurer coh&eacute;rente avec la logique d&rsquor;&eacute;criture sur &eacute;criture, nous avons choisi d&rsquor;op&eacute;rer nos exp&eacute;rimentations exclusivement par l&rsquor;utilisation de notre terminal d&rsquor;ordinateur. Le terminal constitue un p&eacute;riph&eacute;rique, un m&eacute;dia de communication entre l&rsquor;utilisateur et sa machine. Pour effectuer une action, une requ&ecirc;te, l&rsquor;utilisateur &eacute;crit dans cette interface ce qui est appel&eacute; &laquo;&NonBreakingSpace;des commandes&NonBreakingSpace;&raquo;, qui vont &ecirc;tre analys&eacute;es par la machines puis r&eacute;alis&eacute;es si cela est dans ses capacit&eacute;s.</p>
+  <p>En ce sens, le terminal constitue un outil pour effectuer des actions par l&rsquor;utilisation de commandes qui agissent comme des mots d&rsquor;ordres pour l&rsquor;ordinateur. Cela nous est apparu comme une possible une rem&eacute;diation du stylet, utilis&eacute; pour &eacute;crire mais dont la pointe servait &eacute;galement &agrave; gratter les &eacute;critures (&agrave; l&rsquor;instar des gommes au bout de crayon &agrave; papier). Notre &eacute;criture sera l&rsquor;outil permettant de moduler, de travailler les &eacute;critures et leurs supports.</p>
+  <p>Les extraits du volet cr&eacute;ation qui suivent pr&eacute;sentent quatre types d&rsquor;exp&eacute;rimentations&NonBreakingSpace;: la superposition, la conversion, l&rsquor;oc&eacute;risation et l&rsquor;encryption. Chacune de ces ex&eacute;cutions tentent de cerner les possibles du palimpseste dans le m&eacute;dia num&eacute;rique (selon diff&eacute;rents formats) &agrave; partir d&rsquor;un corpus suivi. En d&eacute;coulent plusieurs textures de l&rsquor;objet litt&eacute;raire qui est tant&ocirc;t manipul&eacute;, diss&eacute;qu&eacute;, d&eacute;tourn&eacute; &agrave; plusieurs de ses niveaux.</p>
 
 <h2>Superpositions</h2>
 
@@ -400,12 +478,12 @@ line-height: 1.8;
 <p>Derrière ces visualisation, c’est un autre texte qui est interprété, celui du code HTML dont ceci est extrait :</p>
 
 <div class="partie">
-<object data="TXT/3.txt" type="text/html" width="100%" height="840px">
-  <embed src="TXT/3.txt" type="text/html"/>
+<object data="TXT/3.txt" type="text/html" width="50%" height="640px">
+no content
 </object>
 <div class="meta"><p>La page HTML a été structurée par la présence de différents cadres aux dimensions préalablement définies (par exemple l’id « #abs ») dont le type de positionnement (statique, absolu ou relatif) sont un moyen d’explorer la modularité des espaces et ont permi de placer deux éléments au même endroit, l’un sur l’autre, soit la traduction de François Bon sur le texte original de Kenneth Goldsmith. Si le code est visible dans la capture du code, nous retranscrivons ici les lignes d’écritures qui constituent le dispositif de coïncidencepour davantage de lisibilité : </p>
 </br>
-<blocknote>
+<blockquote>
 &lt;object id="abs1" class="absolute" data="PDF/1.pdf" type="application/pdf"&gt;
 </br>
 &lt;embed src="PDF/1.pdf" type="application/pdf" /&gt;
@@ -417,7 +495,7 @@ line-height: 1.8;
 &lt;embed src="PDF/2.pdf" type="application/pdf" /&gt;
 </br>
 &lt;/object&gt;
-</blocknote>
+</blockquote>
 </br>
 <p>
 Chaque document constitue un élément à part entière (un object), possède chacun une déclaration de cadre particulière (#abs1 pour Goldsmith et #abs2 pour Bon), qui demeure cependant identique, et sont définis par une position commune, qui est la position absolue (.absolute). Le jeu de transparence se situe dans la déclaration du type de position (avec l’attribut opacity). Les deux objets partagent donc une transparence, une position, mais s’inscrivent dans des cadres d’écriture différent. 
@@ -430,6 +508,138 @@ Dans l’écriture derrière les deux écritures, le HTML se compose également 
 <p>
 Le principe de palimpseste dans le dispositf de superposition demeure principalement un arrangement esthérique ou visuel, dans la mesure où cette option constitue une remédiation des deux documents sans les atteindre, sans les gratter. Cela, au même titre que les oeuvres de notre corpus, demeure une mise en scène d’un palimpseste. C’est pourquoi nous avons voulu par la suite opter pour des procédures plus intrusives.</p>
 
+
+
+
+<h2>Métamorphoses</h2>
+
+<div class="partie">
+<object data="PDF/Acknowledgments.pdf" type="application/pdf" width="70%" height="950px">
+no content  
+</object>
+<div class="meta">
+<p>Le PDF (Portable Document Format) est un format propriétaire et ouvert (ses spécifications sont connues), mais qui demeure compliqué à travailler ou à défaire. La spécificité de ce format est en effet de préserver la mise en page du document telle que définie par son auteur. Le format PDF se rapproche en effet d’un “canvas”, une structure où des blocs (textes, images ou autres composants du document) sont placés de manière statique.  C’est parce que ce format réagi de manière abrupte aux conversions (déplacement, corruption ou perte d’informations), que l’entreprise de conversion constitue un procédé plus agressif que la superposition et est susceptible de produire un nouvel objet littéraire, soit de procéder à une métamorphose du premier texte. La conversion sera effectué sur un échantillon (page des Remerciements).</p>
+</div>
+</div>
+
+<div class="partie">
+<object data="PDF/Remerciements.pdf" type="application/pdf" width="70%" height="950px">
+no content  
+</object>
+<div class="meta">
+<p>
+La conversion sera dirigée vers le format TXT qui est celui du texte brut, constitué uniquement des suites caractères. La métamorphose abandonne donc toutes les spécifications éditoriales du document original en terme de style typographique (police, taille de caractères), de mise en page (indentation, marges) : le format est lissé et ne tolère désormais que les caractères imprimables, les espaces et les retours à la ligne. Ce format sera le format pivot vers une prochaine conversion qui permettra un nouveau enrichissement de l’objet littéraire.
+</p>
+</div>
+</div>
+
+<p>
+Pour cette première conversion, nous avons souhaité utiliser notre stylet :
+</p>
+
+
+
+<object data="image/Stylet1.png" alt="no content">
+</object>
+
+<div class="miroir">
+<div class="left">
+<object data="TXT/Acknowledgments.txt" height="950px" width="100%">
+no content  
+</object>
+</div>
+
+<div class="right">
+<object data="TXT/Remerciements.txt" height="950px" width="100%">
+no content  
+</object>
+</div>
+</div>
+
+<p>
+Le TXT, parce que format de texte simple, permet de multiples conversions : nous souhaitons désormais procéder à la conversion vers le format HTML (Hypertext Markup Language), langage de balise permettant de visualiser les pages web. Ce langage permet de structurer sémantiquement du contenu selon des spécifications connues et modulables : les contenus HTML sont voulus comme interopérables et (re)trouvent ainsi une dimension de plasticité intermédiale. Ce format, comme remarqué précédemment, permet l’écriture derrière l’écriture que nous souhaitons expérimenter au sein même du document et non dans une de ses possibles visualisations. 
+</p>
+
+
+<div class="partie">
+<object data="image/Stylet2.png">
+</object>
+<div class="meta">
+<p>
+C’est au sein du document HTML de Goldsmith que nous souhaitons inscrire un nouveau texte, le second texte, soit celui de la traduction en explorant une nouvelle propriété du format qui ne gère plus la page (comme le cadre dans la superposition) mais l’écriture en tant que telle. </p>
+</div>
+</div>
+
+<p>
+Le texte brut de la traduction va être inscrite au sein même du langage du document original. Ce texte parce qu’il constitue un second texte, nous choisissons de le placer dans un espace liminaire au corps du texte du document HTML (le body). Le second texte est placé dans l’espace de déclaration du style du document : 
+</p>
+
+<div class="partie">
+<object data="TXT/Gold.txt" type="text/html" width="50%" height="640px">
+</object>
+<div class="meta">
+<p>Cette spécification est appelée « palimpseste » et fonctionnement par l’option hover qui permet l’affichage d’éléments textuels et visuels lors du passage du curseur à l’emplacement où cette fonction est appelée. </p>
+</div>
+</div>
+
+<div class="partie">
+<object data="HTML/Gold.html" type="text/html" width="50%" height="640px">
+</object>
+<div class="meta">
+<p>Ainsi le second texte – la partie des remerciements dans L’écriture sans écriture – viendra se sur-inscrire à l’endroit des remerciements de l’Uncreative Writing lorsque le curseur, extension du geste de consultation, passera au-dessus.</p>
+</div>
+</div>
+
+<h2>Océrisation mêlée</h2>
+
+<div class="partie">
+<object data="image/Ocerisation1.png"  height="640px">
+</object>
+<div class="meta">
+<p>
+Les expérimentations précédentes ont, par les rendus textuels comme visuels, permis de questionner la lisibilité des écritures : la superposition à plusieurs niveaux (format ou graphie) des écritures conduit l’objet littéraire vers une nouvelle texture. Nous souhaitons désormais observer comment cette texture peut être lue, notamment par l’oeil de la machine. Pour retourner à un agencement lisible, nous nous en remettrons au principe de l’OCR (Optical character recognition) ou au dispositif de l’océrisation à partir de plusieurs visuels palimpsestiques.</p>
+</div>
+</div> 
+
+<p>La reconnaissance optique des caractères permet de récupérer un texte dans une image : elle est principalement utilisée pour la lecture d’archives numérisées. L’OCR retranscrit les caractères reconnus dans un fichier qui peut être exploité comme du texte brut (format TXT).  Si notre œil peut encore discerner les deux graphies et distinguer à un endroit l’écriture en avant de celle en arrière, il est intéressant de se demander ce que voit la machine dans un palimpseste, comment elle démêle ou mêle les écritures pour retranscrire des caractères lisibles et exploitables comme texte. Le palimpseste, dans le cadre de cette expérimentation, est alors traité comme visuel, il est au format d’image (PNG ici).
+</br>
+Pour procéder l’océrisation, nous avons utiliser le moteur de reconnaissance de caractères Tesseract OCR qui permet l’exécution dans le terminal, toujours avec notre principe de stylet : </p>
+
+<object data="image/Stylet3.png" >
+</object>
+
+<p>Le résultat de cette océrisation montre, non pas une superposition des écritures, mais bien une alternance entre les écriture.</p>
+
+<div class="partie">
+<object data="TXT/Ocerisation1.txt" type="text/html" width="50%" height="640px">
+</object>
+<div class="meta">
+<p>
+ Si cette alternance demeure majoritairement distincte – les paragraphes des deux écritures se succèdent – certains passage semblent présenter la corruption ou plutôt le détournement d’une écriture par la présence d’une autre. Il y a mêlement d’un point de vue graphique.</p>
+</div>
+</div>  
+
+<p>Le majeur problème pour l’OCR dans le cas de l’image précédente est la différence de mise en page. </p>
+
+<div class="partie">
+<object data="image/Ocerisation2.png">
+</object>
+<div class="meta">
+<p>C’est pourquoi, en vue de préciser le processus d’océrisation, nous avons tenté d’éditer les deux extraits dans une mise en page identiques, une même typographie afin d’obtenir une image plus lisse du palimpseste. </p>
+</div>
+</div>  
+
+<p>Nous avons ensuite procéder à la même commande précédente.</p>
+
+<div class="partie">
+<object data="TXT/Ocerisation2.txt" type="text/html" width="50%" height="640px">
+</object>
+<div class="meta">
+<p>Le résultat de l’océrisation a alors été sensiblement différent : si certaines lettres paraissent avec davantage de force (parce qu’elles sont des capitales, ou parce qu’aucun chevauchement n’était présent à leurs endroits), la majeure partie se trouve transformées.</p>
+</div>
+</div>  
+
+<p>Ces processus de conversion, superposition, modulation successifs laisse à penser que le palimpseste, en tant que pratique répétée en amont, pourrait consister en une palingénèse d’un support. Un format d’un fichier numérique renvoie à la façon dont est représenté (ou codé) un type de données : les TXT proposent des caractéristiques du texte brut, les PDF sont une mise en page plus étoffée et rigide, etc. Ainsi ces formats ne sont pas prévus au départ pour le geste palimpseste : d’où l’éventualité, à l’issue de test supplémentaires sur les médias, de penser un format qui permettrait de représenter le palimpseste littéraire, soit dont la spécificité serait de supporter les caractéristiques plastiques d’un palimpseste.</p>
 
 </body>
 </html>

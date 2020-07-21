@@ -391,14 +391,78 @@ margin: 10px;
 	float: right;
 }
 
-#plein p {
+
+div.partie {
+position: relative;
+}
+
+span:hover + div.meta {
+  display: inline;
+position: absolute;
+left: 0;
+right: 0;
+}
+
+div.meta {
+  background: white;
+  padding: 40px;
+  width: 1600px;
+  height: 100px;
+position: absolute;
+top: 30%;
+opacity: 0%;
+transition: opacity 5s ease-in-out
+}
+
+.meta:hover {
+opacity: 100%;
+}
 
 
+.header { grid-area: header; }
+.indice { grid-area: indice; }
+.bloc { grid-area: bloc; }
+.footer { grid-area: footer; }
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header header header header header header header header'
+    'indice bloc bloc bloc bloc bloc bloc bloc bloc bloc bloc bloc bloc'
+    'footer footer footer footer footer footer footer footer footer footer footer footer footer';
+  grid-gap: 10px;
+  background-color: grey;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 30px 0px;
+  font-size: 30px;
 }
 
 </style>
 </head>
 <body>
+
+
+<div class="grid-container">
+  <div class="header"><h1>The transition-delay Property</h1></div>
+
+<div class="indice">Indice</div>
+
+
+<div class="bloc">
+<div class="partie">
+<object data="PDF/Coincidence.pdf" type="application/pdf" width="70%" height="950px">
+  <embed src="PDF/Coincidence.pdf" type="application/pdf"/>
+</object>
+<div class="meta">
+<p>Dans un premier temps, nous avons exploré la superposition des objets littéraires - Uncreative Writing et L’écriture sans écriture - en tant que tels (documents qui nous ont été transmis en format PDF). Cette visualisation implique un travail sur la transparence et l’opacité des document dans un même espace de lecture. Dans cet espace de lecture  conçu à partir du langage HTML, les deux objets littéraire sont en coïncidence : ils défilent ensemble comme une seule unité tout en consevant les caractéristiques propres de mises en page de l’édition numérique (page simple/double).</p>
+</div>
+</div>
+</div>
 
 <a href="#" class="button">
    <span class="texte-base">

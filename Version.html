@@ -381,6 +381,7 @@ body {
           border-top : 1px solid rgb(200,200,200)
         }
 
+
 div.partie {
 position: relative;
 }
@@ -400,6 +401,9 @@ position: absolute;
 top: 30%;
 opacity: 0%;
 transition: opacity 3s ease-in-out;
+justify-content: center;
+  align-items: center;
+display: flex;
 }
 
 div.meta:hover {
@@ -412,10 +416,11 @@ font-size: 20px;
 font-weight: 600;
 line-height: 1px;
 transition: line-height 2s ease;
+
 }
 
 div.meta > p:hover {
-line-height: 40px;
+line-height: 50px;
 }
 
 div.miroir {
@@ -440,24 +445,30 @@ font-weight: 200;
 line-height: 1.8;
 }
 
-object {
-height: 900px;
+object.creation {
+height: 1000px;
+width: 100%;
 }
 
-.col-sm-2 {
+object.stylet {
+height: 50%;
+width: 80%;
+}
+
+div.notice {
 height: 100%;
 background: white;
 border-color: black;
-transition: width 2s
-transition-timing-function: linear;
+display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-div.protocole {
-margin: auto;
-  width: 50%;
-  border: 3px solid green;
+div.notice > span.protocole {
+top:50%;
+  border: 3px solid black;
   padding: 10px;
-
+display: inline-block;
 }
 
 
@@ -519,15 +530,14 @@ Qu’est-ce que le cerveau humain, sinon un palimpseste immense et naturel ? [�
 </div> 
 
 <div class="row">
-<div class="col-sm-2">
-<div class="protocole">
-* Passez sur le milieu du document et ensuite sur le texte pour développer le méta-texte.
-</div>
+<div class="col-sm-2 notice">
+<span class="protocole align-middle">
+<p>* Passez sur le milieu du document et ensuite sur le texte pour développer le méta-texte.</p>
+</span>
 </div>
 <div class="col-sm-10">
 <div class="partie">
-<object data="PDF/Coincidence.pdf" type="application/pdf" width="100%">
-  <embed src="PDF/Coincidence.pdf" type="application/pdf"/>
+<object class="creation" data="PDF/Coincidence.pdf" type="application/pdf" alt="no-content">
 </object>
 <div class="meta"><p>Dans un premier temps, nous avons exploré la superposition des objets littéraires - <em>Uncreative Writing</em> et <em>L’écriture sans écriture</em> - en tant que tels (documents qui nous ont été transmis en format PDF). Cette visualisation implique un travail sur la transparence et l’opacité des document dans un même espace de lecture. Dans cet espace de lecture  conçu à partir du langage HTML, les deux objets littéraire sont en coïncidence : ils défilent ensemble comme une seule unité tout en consevant les caractéristiques propres de mises en page de l’édition numérique (page simple/double).</p>
 </div>
@@ -545,7 +555,7 @@ Qu’est-ce que le cerveau humain, sinon un palimpseste immense et naturel ? [�
 <div class="col-sm-2">*</div>
 <div class="col-sm-8">
 <div class="partie">
-<object data="TXT/3.txt" type="text/html" width="100%" height="640px">
+<object class="creation" data="TXT/3.txt" type="text/html">
 no content
 </object>
 <div class="meta"><p>La page HTML a été structurée par la présence de différents cadres aux dimensions préalablement définies (par exemple l’id « #abs ») dont le type de positionnement (statique, absolu ou relatif) sont un moyen d’explorer la modularité des espaces et ont permi de placer deux éléments au même endroit, l’un sur l’autre, soit la traduction de François Bon sur le texte original de Kenneth Goldsmith. </p>
@@ -559,23 +569,26 @@ no content
 <p>
 Si le code est visible dans la capture du code, nous retranscrivons ici les lignes d’écritures qui constituent le dispositif de coïncidencepour davantage de lisibilité : </p>
 </br>
-<blockquote>
-&lt;object id="abs1" class="absolute" data="PDF/1.pdf" type="application/pdf"&gt;
-</br>
-&lt;embed src="PDF/1.pdf" type="application/pdf" /&gt;
-</br>
-&lt;/object&gt;
-</br>
-&lt;object id="abs2" class="absolute" data="PDF/2.pdf" style="border-color: #696" type="application/pdf"&gt;
-</br>
-&lt;embed src="PDF/2.pdf" type="application/pdf" /&gt;
-</br>
-&lt;/object&gt;
-</blockquote>
-</br>
+</div>
+</div>
+
+<div class="row">
+<div class="col-sm-2">*</div>
+<div class="col-sm-8">
+<div class="partie">
+<object class="creation" data="TXT/Extrait.txt" type="text/html">
+no content  
+</object>
+<div class="meta">
 <p>
 Chaque document constitue un élément à part entière (un object), possède chacun une déclaration de cadre particulière (#abs1 pour Goldsmith et #abs2 pour Bon), qui demeure cependant identique, et sont définis par une position commune, qui est la position absolue (.absolute). Le jeu de transparence se situe dans la déclaration du type de position (avec l’attribut opacity). Les deux objets partagent donc une transparence, une position, mais s’inscrivent dans des cadres d’écriture différent. </p>
-</br>
+</div>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-sm-12">
 <p>
 Dans l’écriture derrière les deux écritures, le HTML se compose également d’informations invisibles dans les visualisations des coïncidences : que ce soit des commentaires (< !---texte-- >), des lignes de style qui n’ont pas servi, ou encore les traces de tentatives, de solutions intermédiaires à la superposition ou des échecs. Le résultat de superposition contient donc, au sein même du langage qui le constitue comme média, des écritures cachées, qui témoignent d’un processus antérieur de travail du support. 
 </p>
@@ -583,7 +596,6 @@ Dans l’écriture derrière les deux écritures, le HTML se compose également 
 Le principe de palimpseste dans le dispositf de superposition demeure principalement un arrangement esthérique ou visuel, dans la mesure où cette option constitue une remédiation des deux documents sans les atteindre, sans les gratter. Cela, au même titre que les oeuvres de notre corpus, demeure une mise en scène d’un palimpseste. C’est pourquoi nous avons voulu par la suite opter pour des procédures plus intrusives.</p>
 </div>
 </div>
-
 
 <div class="row">
 <div class="col-sm-12">
@@ -596,7 +608,7 @@ Le principe de palimpseste dans le dispositf de superposition demeure principale
 <div class="col-sm-2">*</div>
 <div class="col-sm-8">
 <div class="partie">
-<object data="PDF/Acknowledgments.pdf" type="application/pdf" width="100%" height="950px">
+<object class="creation" data="PDF/Acknowledgments.pdf" type="application/pdf">
 no content  
 </object>
 <div class="meta">
@@ -610,7 +622,7 @@ no content
 <div class="col-sm-2">*</div>
 <div class="col-sm-8">
 <div class="partie">
-<object data="PDF/Remerciements.pdf" type="application/pdf" width="70%" height="950px">
+<object class="creation"data="PDF/Remerciements.pdf" type="application/pdf">
 no content  
 </object>
 <div class="meta">
@@ -632,18 +644,18 @@ Pour cette première conversion, nous avons souhaité utiliser notre stylet :
 
 <div class="row">
 <div class="col-sm-12">
-<object data="image/Stylet1.png" alt="no content">
+<object class="stylet" data="image/Stylet1.png" alt="no content">
 </object>
 
 <div class="miroir">
 <div class="left">
-<object data="TXT/Acknowledgments.txt" height="950px" width="100%">
+<object class="creation" data="TXT/Acknowledgments.txt">
 no content  
 </object>
 </div>
 
 <div class="right">
-<object data="TXT/Remerciements.txt" height="950px" width="100%">
+<object class="creation" data="TXT/Remerciements.txt">
 no content  
 </object>
 </div>
@@ -663,11 +675,11 @@ Le TXT, parce que format de texte simple, permet de multiples conversions : nou
 <div class="col-sm-2">*</div>
 <div class="col-sm-8">
 <div class="partie">
-<object data="image/Stylet2.png">
+<object data="image/Stylet2.png" height="300px" width="1500px">
 </object>
 <div class="meta">
 <p>
-C’est au sein du document HTML de Goldsmith que nous souhaitons inscrire un nouveau texte, le second texte, soit celui de la traduction en explorant une nouvelle propriété du format qui ne gère plus la page (comme le cadre dans la superposition) mais l’écriture en tant que telle. </p>
+C’est dans le HTML de Goldsmith que je souhaite inscrire un second texte, celui de la traduction en explorant une nouvelle propriété du format qui ne gère plus la page (comme le cadre dans la superposition) mais l’écriture en tant que telle. </p>
 </div>
 </div>
 </div>
@@ -685,7 +697,7 @@ Le texte brut de la traduction va être inscrite au sein même du langage du doc
 <div class="col-sm-2">*</div>
 <div class="col-sm-8">
 <div class="partie">
-<object data="TXT/Gold.txt" type="text/html" width="50%" height="640px">
+<object class="creation" data="TXT/Gold.txt" type="text/html">
 </object>
 <div class="meta">
 <p>Cette spécification est appelée « palimpseste » et fonctionnement par l’option hover qui permet l’affichage d’éléments textuels et visuels lors du passage du curseur à l’emplacement où cette fonction est appelée. </p>
@@ -698,7 +710,7 @@ Le texte brut de la traduction va être inscrite au sein même du langage du doc
 <div class="col-sm-2">*</div>
 <div class="col-sm-8">
 <div class="partie">
-<object data="HTML/Gold.html" type="text/html" width="50%" height="640px">
+<object class="creation" data="HTML/Gold.html" type="text/html">
 </object>
 <div class="meta">
 <p>Ainsi le second texte – la partie des remerciements dans L’écriture sans écriture – viendra se sur-inscrire à l’endroit des remerciements de l’Uncreative Writing lorsque le curseur, extension du geste de consultation, passera au-dessus.</p>
@@ -709,7 +721,7 @@ Le texte brut de la traduction va être inscrite au sein même du langage du doc
 
 <div class="row">
 <div class="col-sm-12">
-<h2>Océrisation mêlée</h2>
+<h2>Océrisations mêlées</h2>
 </div>
 </div> 
 
@@ -717,7 +729,7 @@ Le texte brut de la traduction va être inscrite au sein même du langage du doc
 <div class="col-sm-2">*</div>
 <div class="col-sm-8">
 <div class="partie">
-<object data="image/Ocerisation1.png"  height="640px">
+<object class="stylet" data="image/Ocerisation1.png" height="640px">
 </object>
 <div class="meta">
 <p>
@@ -737,7 +749,7 @@ Les expérimentations précédentes ont, par les rendus textuels comme visuels, 
 
 <div class="row">
 <div class="col-sm-12">
-<object data="image/Stylet3.png" >
+<object class="stylet" data="image/Stylet3.png" >
 </object>
 </div>
 </div> 
@@ -752,7 +764,7 @@ Les expérimentations précédentes ont, par les rendus textuels comme visuels, 
 <div class="col-sm-2">*</div>
 <div class="col-sm-8">
 <div class="partie">
-<object data="TXT/Ocerisation1.txt" type="text/html" width="50%" height="640px">
+<object class="creation" data="TXT/Ocerisation1.txt" type="text/html">
 </object>
 <div class="meta">
 <p>
@@ -772,7 +784,7 @@ Les expérimentations précédentes ont, par les rendus textuels comme visuels, 
 <div class="col-sm-2">*</div>
 <div class="col-sm-8">
 <div class="partie">
-<object data="image/Ocerisation2.png">
+<object class="creation" data="image/Ocerisation2.png">
 </object>
 <div class="meta">
 <p>C’est pourquoi, en vue de préciser le processus d’océrisation, nous avons tenté d’éditer les deux extraits dans une mise en page identiques, une même typographie afin d’obtenir une image plus lisse du palimpseste. </p>
@@ -791,7 +803,7 @@ Les expérimentations précédentes ont, par les rendus textuels comme visuels, 
 <div class="col-sm-2">*</div>
 <div class="col-sm-8">
 <div class="partie">
-<object data="TXT/Ocerisation2.txt" type="text/html" width="50%" height="640px">
+<object class="creation" data="TXT/Ocerisation2.txt" type="text/html" width="50%" height="640px">
 </object>
 <div class="meta">
 <p>Le résultat de l’océrisation a alors été sensiblement différent : si certaines lettres paraissent avec davantage de force (parce qu’elles sont des capitales, ou parce qu’aucun chevauchement n’était présent à leurs endroits), la majeure partie se trouve transformées.</p>
@@ -799,7 +811,6 @@ Les expérimentations précédentes ont, par les rendus textuels comme visuels, 
 </div>  
 </div>
 </div> 
-
 <div class="row">
 <div class="col-sm-12">
 <p>Ces processus de conversion, superposition, modulation successifs laisse à penser que le palimpseste, en tant que pratique répétée en amont, pourrait consister en une palingénèse d’un support. Un format d’un fichier numérique renvoie à la façon dont est représenté (ou codé) un type de données : les TXT proposent des caractéristiques du texte brut, les PDF sont une mise en page plus étoffée et rigide, etc. Ainsi ces formats ne sont pas prévus au départ pour le geste palimpseste : d’où l’éventualité, à l’issue de test supplémentaires sur les médias, de penser un format qui permettrait de représenter le palimpseste littéraire, soit dont la spécificité serait de supporter les caractéristiques plastiques d’un palimpseste.</p>

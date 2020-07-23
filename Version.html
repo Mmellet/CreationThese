@@ -394,17 +394,28 @@ right: 0;
 
 div.meta {
   background: white;
-  padding: 5%;
   width: 100%;
   height: 30%;
 position: absolute;
 top: 30%;
 opacity: 0%;
-transition: opacity 3s ease-in-out
+transition: opacity 3s ease-in-out;
 }
 
-.meta:hover {
-opacity: 100%;
+div.meta:hover {
+opacity: 90%;
+}
+
+div.meta > p {
+text-align: justify;
+font-size: 20px;
+font-weight: 600;
+line-height: 1px;
+transition: line-height 2s ease;
+}
+
+div.meta > p:hover {
+line-height: 40px;
 }
 
 div.miroir {
@@ -422,19 +433,33 @@ div.right {
 width:50%;
 }
 
-
 p {
 text-align: justify;
 font-size: 20px;
-font-weight: 600;
+font-weight: 200;
 line-height: 1.8;
+}
+
+object {
+height: 900px;
 }
 
 .col-sm-2 {
 height: 100%;
 background: white;
 border-color: black;
+transition: width 2s
+transition-timing-function: linear;
 }
+
+div.protocole {
+margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+
+}
+
 
 </style>
 </head>
@@ -487,13 +512,21 @@ Qu’est-ce que le cerveau humain, sinon un palimpseste immense et naturel ? [�
   <p>Les extraits du volet cr&eacute;ation qui suivent pr&eacute;sentent quatre types d&rsquor;exp&eacute;rimentations&NonBreakingSpace;: la superposition, la conversion, l&rsquor;oc&eacute;risation et l&rsquor;encryption. Chacune de ces ex&eacute;cutions tentent de cerner les possibles du palimpseste dans le m&eacute;dia num&eacute;rique (selon diff&eacute;rents formats) &agrave; partir d&rsquor;un corpus suivi. En d&eacute;coulent plusieurs textures de l&rsquor;objet litt&eacute;raire qui est tant&ocirc;t manipul&eacute;, diss&eacute;qu&eacute;, d&eacute;tourn&eacute; &agrave; plusieurs de ses niveaux.</p>
 -->
 
+<div class="row">
+<div class="col-sm-12">
 <h2>Superpositions</h2>
+</div>
+</div> 
 
 <div class="row">
-<div class="col-sm-2">*</div>
-<div class="col-sm-8">
+<div class="col-sm-2">
+<div class="protocole">
+* Passez sur le milieu du document et ensuite sur le texte pour développer le méta-texte.
+</div>
+</div>
+<div class="col-sm-10">
 <div class="partie">
-<object data="PDF/Coincidence.pdf" type="application/pdf" width="100%" height="950px">
+<object data="PDF/Coincidence.pdf" type="application/pdf" width="100%">
   <embed src="PDF/Coincidence.pdf" type="application/pdf"/>
 </object>
 <div class="meta"><p>Dans un premier temps, nous avons exploré la superposition des objets littéraires - <em>Uncreative Writing</em> et <em>L’écriture sans écriture</em> - en tant que tels (documents qui nous ont été transmis en format PDF). Cette visualisation implique un travail sur la transparence et l’opacité des document dans un même espace de lecture. Dans cet espace de lecture  conçu à partir du langage HTML, les deux objets littéraire sont en coïncidence : ils défilent ensemble comme une seule unité tout en consevant les caractéristiques propres de mises en page de l’édition numérique (page simple/double).</p>
@@ -546,43 +579,59 @@ Chaque document constitue un élément à part entière (un object), possède ch
 <p>
 Dans l’écriture derrière les deux écritures, le HTML se compose également d’informations invisibles dans les visualisations des coïncidences : que ce soit des commentaires (< !---texte-- >), des lignes de style qui n’ont pas servi, ou encore les traces de tentatives, de solutions intermédiaires à la superposition ou des échecs. Le résultat de superposition contient donc, au sein même du langage qui le constitue comme média, des écritures cachées, qui témoignent d’un processus antérieur de travail du support. 
 </p>
-</div>
-</div>
-
 <p>
 Le principe de palimpseste dans le dispositf de superposition demeure principalement un arrangement esthérique ou visuel, dans la mesure où cette option constitue une remédiation des deux documents sans les atteindre, sans les gratter. Cela, au même titre que les oeuvres de notre corpus, demeure une mise en scène d’un palimpseste. C’est pourquoi nous avons voulu par la suite opter pour des procédures plus intrusives.</p>
+</div>
+</div>
 
 
-
-
+<div class="row">
+<div class="col-sm-12">
 <h2>Métamorphoses</h2>
+</div>
+</div> 
 
+
+<div class="row">
+<div class="col-sm-2">*</div>
+<div class="col-sm-8">
 <div class="partie">
-<object data="PDF/Acknowledgments.pdf" type="application/pdf" width="70%" height="950px">
+<object data="PDF/Acknowledgments.pdf" type="application/pdf" width="100%" height="950px">
 no content  
 </object>
 <div class="meta">
-<p>Le PDF (Portable Document Format) est un format propriétaire et ouvert (ses spécifications sont connues), mais qui demeure compliqué à travailler ou à défaire. La spécificité de ce format est en effet de préserver la mise en page du document telle que définie par son auteur. Le format PDF se rapproche en effet d’un “canvas”, une structure où des blocs (textes, images ou autres composants du document) sont placés de manière statique.  C’est parce que ce format réagi de manière abrupte aux conversions (déplacement, corruption ou perte d’informations), que l’entreprise de conversion constitue un procédé plus agressif que la superposition et est susceptible de produire un nouvel objet littéraire, soit de procéder à une métamorphose du premier texte. La conversion sera effectué sur un échantillon (page des Remerciements).</p>
+<p>Le PDF (Portable Document Format) est un format propriétaire et ouvert (ses spécifications sont connues), mais qui demeure compliqué à travailler ou à défaire. La spécificité de ce format est en effet de préserver la mise en page du document telle que définie par son auteur. Le format PDF se rapproche d’un “canvas”, une structure où des blocs (textes, images ou autres composants du document) sont placés de manière statique.C’est parce que ce format réagi de manière abrupte aux conversions (déplacement, corruption ou perte d’informations), que l’entreprise de conversion constitue un procédé plus agressif que la superposition.</p>
 </div>
 </div>
+</div>
+</div> 
 
+<div class="row">
+<div class="col-sm-2">*</div>
+<div class="col-sm-8">
 <div class="partie">
 <object data="PDF/Remerciements.pdf" type="application/pdf" width="70%" height="950px">
 no content  
 </object>
 <div class="meta">
 <p>
-La conversion sera dirigée vers le format TXT qui est celui du texte brut, constitué uniquement des suites caractères. La métamorphose abandonne donc toutes les spécifications éditoriales du document original en terme de style typographique (police, taille de caractères), de mise en page (indentation, marges) : le format est lissé et ne tolère désormais que les caractères imprimables, les espaces et les retours à la ligne. Ce format sera le format pivot vers une prochaine conversion qui permettra un nouveau enrichissement de l’objet littéraire.
+La conversion est susceptible de produire un nouvel objet littéraire, soit de procéder à une métamorphose du premier texte. Elle sera effectué sur un échantillon (page des Remerciements) et sera dirigée vers le format TXT qui est celui du texte brut, constitué uniquement des suites caractères. La métamorphose abandonne donc toutes les spécifications éditoriales du document original en terme de style typographique (police, taille de caractères), de mise en page (indentation, marges) : le format est lissé et ne tolère désormais que les caractères imprimables, les espaces et les retours à la ligne. Ce format sera le format pivot vers une prochaine conversion qui permettra un nouveau enrichissement de l’objet littéraire.
 </p>
 </div>
 </div>
+</div>
+</div> 
 
+<div class="row">
+<div class="col-sm-12">
 <p>
 Pour cette première conversion, nous avons souhaité utiliser notre stylet :
 </p>
+</div>
+</div> 
 
-
-
+<div class="row">
+<div class="col-sm-12">
 <object data="image/Stylet1.png" alt="no content">
 </object>
 
@@ -599,12 +648,20 @@ no content
 </object>
 </div>
 </div>
+</div>
+</div> 
 
+<div class="row">
+<div class="col-sm-12">
 <p>
 Le TXT, parce que format de texte simple, permet de multiples conversions : nous souhaitons désormais procéder à la conversion vers le format HTML (Hypertext Markup Language), langage de balise permettant de visualiser les pages web. Ce langage permet de structurer sémantiquement du contenu selon des spécifications connues et modulables : les contenus HTML sont voulus comme interopérables et (re)trouvent ainsi une dimension de plasticité intermédiale. Ce format, comme remarqué précédemment, permet l’écriture derrière l’écriture que nous souhaitons expérimenter au sein même du document et non dans une de ses possibles visualisations. 
 </p>
+</div>
+</div> 
 
-
+<div class="row">
+<div class="col-sm-2">*</div>
+<div class="col-sm-8">
 <div class="partie">
 <object data="image/Stylet2.png">
 </object>
@@ -613,11 +670,20 @@ Le TXT, parce que format de texte simple, permet de multiples conversions : nou
 C’est au sein du document HTML de Goldsmith que nous souhaitons inscrire un nouveau texte, le second texte, soit celui de la traduction en explorant une nouvelle propriété du format qui ne gère plus la page (comme le cadre dans la superposition) mais l’écriture en tant que telle. </p>
 </div>
 </div>
+</div>
+</div> 
 
+<div class="row">
+<div class="col-sm-12">
 <p>
 Le texte brut de la traduction va être inscrite au sein même du langage du document original. Ce texte parce qu’il constitue un second texte, nous choisissons de le placer dans un espace liminaire au corps du texte du document HTML (le body). Le second texte est placé dans l’espace de déclaration du style du document : 
 </p>
+</div>
+</div> 
 
+<div class="row">
+<div class="col-sm-2">*</div>
+<div class="col-sm-8">
 <div class="partie">
 <object data="TXT/Gold.txt" type="text/html" width="50%" height="640px">
 </object>
@@ -625,7 +691,12 @@ Le texte brut de la traduction va être inscrite au sein même du langage du doc
 <p>Cette spécification est appelée « palimpseste » et fonctionnement par l’option hover qui permet l’affichage d’éléments textuels et visuels lors du passage du curseur à l’emplacement où cette fonction est appelée. </p>
 </div>
 </div>
+</div>
+</div> 
 
+<div class="row">
+<div class="col-sm-2">*</div>
+<div class="col-sm-8">
 <div class="partie">
 <object data="HTML/Gold.html" type="text/html" width="50%" height="640px">
 </object>
@@ -633,9 +704,18 @@ Le texte brut de la traduction va être inscrite au sein même du langage du doc
 <p>Ainsi le second texte – la partie des remerciements dans L’écriture sans écriture – viendra se sur-inscrire à l’endroit des remerciements de l’Uncreative Writing lorsque le curseur, extension du geste de consultation, passera au-dessus.</p>
 </div>
 </div>
+</div>
+</div> 
 
+<div class="row">
+<div class="col-sm-12">
 <h2>Océrisation mêlée</h2>
+</div>
+</div> 
 
+<div class="row">
+<div class="col-sm-2">*</div>
+<div class="col-sm-8">
 <div class="partie">
 <object data="image/Ocerisation1.png"  height="640px">
 </object>
@@ -644,16 +724,33 @@ Le texte brut de la traduction va être inscrite au sein même du langage du doc
 Les expérimentations précédentes ont, par les rendus textuels comme visuels, permis de questionner la lisibilité des écritures : la superposition à plusieurs niveaux (format ou graphie) des écritures conduit l’objet littéraire vers une nouvelle texture. Nous souhaitons désormais observer comment cette texture peut être lue, notamment par l’oeil de la machine. Pour retourner à un agencement lisible, nous nous en remettrons au principe de l’OCR (Optical character recognition) ou au dispositif de l’océrisation à partir de plusieurs visuels palimpsestiques.</p>
 </div>
 </div> 
+</div>
+</div> 
 
-<p>La reconnaissance optique des caractères permet de récupérer un texte dans une image : elle est principalement utilisée pour la lecture d’archives numérisées. L’OCR retranscrit les caractères reconnus dans un fichier qui peut être exploité comme du texte brut (format TXT).  Si notre œil peut encore discerner les deux graphies et distinguer à un endroit l’écriture en avant de celle en arrière, il est intéressant de se demander ce que voit la machine dans un palimpseste, comment elle démêle ou mêle les écritures pour retranscrire des caractères lisibles et exploitables comme texte. Le palimpseste, dans le cadre de cette expérimentation, est alors traité comme visuel, il est au format d’image (PNG ici).
+<div class="row">
+<div class="col-sm-12">
+<p>La reconnaissance optique des caractères permet de récupérer un texte dans une image : elle est principalement utilisée pour la lecture d’archives numérisées. L’OCR retranscrit les caractères reconnus dans un fichier qui peut être exploité comme du texte brut (format TXT).  Si notre œil peut encore discerner les deux graphies et distinguer à un endroit l’écriture en avant de celle en arrière, il est intéressant de se demander ce que voit la machine dans un palimpseste, comment elle démêle ou mêle les écritures pour retranscrire des caractères lisibles et exploitables comme texte. Le palimpseste, dans le cadre de cette expérimentation, est alors traité comme visuel, il est au format d’image (PNG ici).</p>
 </br>
-Pour procéder l’océrisation, nous avons utiliser le moteur de reconnaissance de caractères Tesseract OCR qui permet l’exécution dans le terminal, toujours avec notre principe de stylet : </p>
+<p>Pour procéder l’océrisation, nous avons utiliser le moteur de reconnaissance de caractères Tesseract OCR qui permet l’exécution dans le terminal, toujours avec notre principe de stylet : </p>
+</div>
+</div> 
 
+<div class="row">
+<div class="col-sm-12">
 <object data="image/Stylet3.png" >
 </object>
+</div>
+</div> 
 
+<div class="row">
+<div class="col-sm-12">
 <p>Le résultat de cette océrisation montre, non pas une superposition des écritures, mais bien une alternance entre les écriture.</p>
+</div>
+</div> 
 
+<div class="row">
+<div class="col-sm-2">*</div>
+<div class="col-sm-8">
 <div class="partie">
 <object data="TXT/Ocerisation1.txt" type="text/html" width="50%" height="640px">
 </object>
@@ -662,9 +759,18 @@ Pour procéder l’océrisation, nous avons utiliser le moteur de reconnaissance
  Si cette alternance demeure majoritairement distincte – les paragraphes des deux écritures se succèdent – certains passage semblent présenter la corruption ou plutôt le détournement d’une écriture par la présence d’une autre. Il y a mêlement d’un point de vue graphique.</p>
 </div>
 </div>  
+</div>
+</div> 
 
+<div class="row">
+<div class="col-sm-12">
 <p>Le majeur problème pour l’OCR dans le cas de l’image précédente est la différence de mise en page. </p>
+</div>
+</div> 
 
+<div class="row">
+<div class="col-sm-2">*</div>
+<div class="col-sm-8">
 <div class="partie">
 <object data="image/Ocerisation2.png">
 </object>
@@ -672,9 +778,18 @@ Pour procéder l’océrisation, nous avons utiliser le moteur de reconnaissance
 <p>C’est pourquoi, en vue de préciser le processus d’océrisation, nous avons tenté d’éditer les deux extraits dans une mise en page identiques, une même typographie afin d’obtenir une image plus lisse du palimpseste. </p>
 </div>
 </div>  
+</div>
+</div> 
 
+<div class="row">
+<div class="col-sm-12">
 <p>Nous avons ensuite procéder à la même commande précédente.</p>
+</div>
+</div> 
 
+<div class="row">
+<div class="col-sm-2">*</div>
+<div class="col-sm-8">
 <div class="partie">
 <object data="TXT/Ocerisation2.txt" type="text/html" width="50%" height="640px">
 </object>
@@ -682,9 +797,14 @@ Pour procéder l’océrisation, nous avons utiliser le moteur de reconnaissance
 <p>Le résultat de l’océrisation a alors été sensiblement différent : si certaines lettres paraissent avec davantage de force (parce qu’elles sont des capitales, ou parce qu’aucun chevauchement n’était présent à leurs endroits), la majeure partie se trouve transformées.</p>
 </div>
 </div>  
+</div>
+</div> 
 
+<div class="row">
+<div class="col-sm-12">
 <p>Ces processus de conversion, superposition, modulation successifs laisse à penser que le palimpseste, en tant que pratique répétée en amont, pourrait consister en une palingénèse d’un support. Un format d’un fichier numérique renvoie à la façon dont est représenté (ou codé) un type de données : les TXT proposent des caractéristiques du texte brut, les PDF sont une mise en page plus étoffée et rigide, etc. Ainsi ces formats ne sont pas prévus au départ pour le geste palimpseste : d’où l’éventualité, à l’issue de test supplémentaires sur les médias, de penser un format qui permettrait de représenter le palimpseste littéraire, soit dont la spécificité serait de supporter les caractéristiques plastiques d’un palimpseste.</p>
-
+</div>
+</div> 
 
 </div>
 </body>

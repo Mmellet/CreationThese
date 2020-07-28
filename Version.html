@@ -329,7 +329,7 @@ height: 1000px;
 width: 100%;
 }
 
-object.stylet {
+iframe.stylet {
 height: 500px;
 width: 100%;
 }
@@ -788,9 +788,14 @@ no content
 </div>
 <div class="col-sm-8">
 <div class="partie">
-<object class="stylet" data="HTML/Python.html">
+<iframe class="stylet" src='<pre><font color="#A74D6E"><b>➜  </b></font><font color="#379C73"><b>~</b></font> <font color="#49B6BF">python3</font>
+Python 3.6.9 (default, Jul 17 2020, 12:50:27) 
+[GCC 8.4.0] on linux
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.&gt;&gt;&gt;
+
+</pre>'>
 <p>Your browser does not support objects.</p>
-</object>
+</iframe>
 <div class="meta">
   <p>La quatri&egrave;me exp&eacute;rimentation est l&rsquor;<em>encryption</em> ou le chiffrement (un proc&eacute;d&eacute; de cryptographie). Si ce proc&eacute;d&eacute; a &eacute;t&eacute; con&ccedil;u pour rendre secret le sens ou une information d&rsquor;un document, il est d&eacute;tourn&eacute; ici pour ne conserver que sa logique, celle qui consiste &agrave; inscrire un caract&egrave;re dans un autre. Dans le principe d&rsquor;encryption, le retour &agrave; l&rsquor;&eacute;criture premi&egrave;re est possible&NonBreakingSpace;: si la clef de (d&eacute;)chiffrement est connue, le caract&egrave;re originel peut &ecirc;tre retrouv&eacute;. L&rsquor;exp&eacute;rimentation se fait essentiellement dans l&rsquor;espace du terminal gr&acirc;ce au langage de script Python.</p>
 </div>
@@ -806,7 +811,7 @@ no content
 </div>
 <div class="col-sm-8">
 <div class="partie">
-<iframe srcdoc='<pre>&gt;&gt;&gt; ord(&apos;a&apos;)
+<iframe class="stylet" srcdoc='<pre>&gt;&gt;&gt; ord(&apos;a&apos;)
 97
 &gt;&gt;&gt; chr(97)
 &apos;a&apos;
@@ -833,9 +838,11 @@ no content
 </div>
 <div class="col-sm-8">
 <div class="partie">
-<object class="stylet" data="HTML/Declaration.html">
+<iframe class="stylet" srcdoc='<pre>&gt;&gt;&gt; x=open(&apos;Goldsmith.txt&apos;).read()
+&gt;&gt;&gt; y=open(&apos;Bon.txt&apos;).read()
+&gt;&gt;&gt; </pre>'>
 <p>Your browser does not support objects.</p>
-</object>
+</iframe>
 <div class="meta">
   <p>Chaque &eacute;criture a &eacute;t&eacute; plac&eacute;e dans un fichier TXT&NonBreakingSpace;: elles sont alors trait&eacute;es comme des <em>string</em> ou suites de caract&egrave;res. La premi&egrave;re &eacute;tape de l&rsquor;encryption est la d&eacute;claration des variables (<em>x</em> et <em>y</em>) qui vont &ecirc;tre mati&egrave;re &agrave; la proc&eacute;dure. Dans ce processus sont d&eacute;clar&eacute;s les fichiers et les actions (ouvrir le fichier, lire le fichier soit parcourir chaque caract&egrave;re avec <em>read</em>) qui sont constitutrices de l&rsquor;op&eacute;ration.</p>
 </div>
@@ -851,9 +858,39 @@ no content
 </div>
 <div class="col-sm-8">
 <div class="partie">
-<object class="stylet" data="HTML/Encryption1print.html">
+<iframe class="stylet" srcdoc='<pre>&gt;&gt;&gt; x=open(&apos;Goldsmith.txt&apos;).read()
+&gt;&gt;&gt; y=open(&apos;Bon.txt&apos;).read()
+&gt;&gt;&gt; print(&apos;&apos;.join(chr(ord(a) + ord(b)) for a, b in zip(x, y)))
+^¦°°À²À±²©µÁ¸X^£vÆÎÛÚäÔ&#x8c;
+                        ÔÙ@ÙÛØ&#x81;Îæ&#x93;Äèà&#x89;ÝÙÊà@ÓÅÓ×Ü
+é
+¤&#x95;:&#x9b;
+±
+Ð₈ÑÚØ&#x92;Ôá*ãÖÙ&#x89;ś&#x94;ŋ&#x8c;äÓ ĉºÊ×çÛÊá&#x93;½‹ÈĉâÎ×Ô~tÒÆÛÔ&#x92;àÍ
+&#x89;¸×¸ÓáÜ&#x94;Ü
+ãÚ
+pÕÚÓÜçÑÅŗÌÆÔØ×@Å₅ÍßçÛÝÍâÌÎæØ
+äÔàØ&#x9f;@ÝÛ@Ð⁾&#x81;åçÕ&#x89;Ýää@àÓÓÙÙ×Ì×NĀiáÞ&#x81;æÙÛÐÚk|yo»⁼Ö@Ň&#x92;Í₍ÚÔÞâ
+ØâÛ&#x94;ŝÉ
+&#x93;ÅÕÞÝåí&#x8c;åÇªÑ@¶Øáä
+ÙØ&#x92;ÎÓØ&#x94;µÍ&#x81;Œ&#x8c;ÈØ&#x93;bÒáâæ&#x94;É₂Ř&#x94;ÓÙ*áÑØ@¨Óä×Ó&#x94;Ïàç
+~&#x92;½ÖæÂÚà
+×â*¯ÔçÔâäØ×Ï&#x92;Ý‹&#x91;YìÚÜÈ
+                     Õ&#x92;Û₏ªÒØÇéÜß@·ÞãäØàÛ&#x95;ÊáÌ
+ÉÆÛáÕÓàØÝæ}ßÑÕ&#x92;Ñ‹ŝÜŎ&#x93;P&#x99;&#x9d;&#x91;&#x81;Ú&#x92;ŅÒÚ&#x8c;ń@àÂÜÚ
+ÞÛÔ&#x94;&#x91;
+ÇÊÒŔØ&#x93;&#x94;ÞÄ&#x92;Ùã&#x83;ÕæÔÜ⁽å
+h×ÏÇÛ×ÐNR®×æÒÐ@Ł¬
+ÁÙåÊÙ@&#x8a;ÓÓéÝ&#x95;*¦è@äßÖÛ&#x82;«Ó&#x81;ÊÜ&#x89;ÚÊ&#x92;ÃÛÝç&#x83;µæÔá¡6cÜÍß@¦ÐÞÚÓ×Õ&#x81;
+»ÔØèÙå&#x93;ØÚ&#x99;sÅåÆá&#x93;|
+ÚØÔ&#x8b;
+ÐÖÙ&#x93;&#x94;ÍÝ&#x93;&#x8c;Æ@æãÛÝËÊ&#x92;s×âÐÙNp¦ÜÕÏŝ&#x89;ÈÓmÑ&#x89;×àÉ@ÉÓÓÙÜÓoÀÕÓ×&#x89;Åá&#x92;~ËÐÛØØ@àÔ@¿ÐÕ&#x8a;ß××É&#x81;¾Ù&#x92;ØÔÙ&#x81;ÔÝś
+ÛØàØÖ&#x95;µÚ&#x89;ÏÎM¹Ü&#x81;Ö&#x91;@ÓÓåÌÝ~tÍÒ
+Ö
+&#x83;ãàÕßÏÞÕØ&#x95;₌Ö
+</pre>'>
 <p>Your browser does not support objects.</p>
-</object>
+</iframe>
 <div class="meta">
   <p>Le <em>stylet</em> a converti les caract&egrave;res un &agrave; un en valeur num&eacute;rale (ord), puis a addition&eacute; les valeurs (+), pour reconvertir chaque valeur obtenue en caract&egrave;re (chr) pour les replacer dans l&rsquor;ordre des <em>strings</em> (join). L&rsquor;action print permet de pr&eacute;senter les &eacute;critures selon la lecture d'un &eacute;diteur de texte. Cette op&eacute;ration laisse la possibilit&eacute; d&rsquor;une r&eacute;cup&eacute;ration des caract&egrave;res d&rsquor;origine.</p>
 </div>
@@ -869,11 +906,48 @@ no content
 </div>
 <div class="col-sm-8">
 <div class="partie">
-<object class="stylet" data="HTML/Encryption2print.html">
+<iframe class="stylet" srcdoc='<pre>&gt;&gt;&gt; x=open(&apos;Goldsmith.txt&apos;).read()
+&gt;&gt;&gt; y=open(&apos;Bon.txt&apos;).read()
+&gt;&gt;&gt; print(&apos;&apos;.join(chr(ord(a) | ord(b)) for a, b in zip(x, y)))
+^eoo~ommeo}wN^Snsmwursldow u{wamsscpoa~|iseboorweotiïwùi{owpk{ésiegewri~iuyamnytkommmw}oollk
+{itéw powt~y*Vou~vytoondw|mo,tyuy musearuubm{és wuwkonoskurooltonttyumrc{{oiyejswawe2su{iouhe~ 
+keow{eweru:weelⁿqutro*nuiûtëlo|éziww{e}on}‹dé~mooptïst{u~kle}{l{lg~nnewzomevwmw mmi~ynwa,tq}k 
+atrísrkiw*uovmofw‹oolintwwwmnuooamupmow|e{nov0||egv}revtwoduuom{{oriu or|o gou~tqvmoo’s 
+s{uosÿhkg|tmasrm{wmtmonkorigmoooemnä lapsusomle⁻~etmonoumyethgo{wimmsoo|oafo~awio~o,
+mg{r{w}msoiwmmo~ wo~|ya}smeù,Nonds|sswmscn{k{msnf{munmisax}nmmmne}dou{wra~mscoowio}
+{nwowwp|owv.kyowtoïnûrows⁽le~g}eww owvmsturmal”esprmu~ode{ne~uwamuwieepïe|mcangaogrkoom 
+mitmèru0¿)sont waswivs~sw~mw~modoorpmuioww(Mmtmacqogv{}ggonvurwocetionctⁿcgrv0ùvéaýcviusu~owwri~efmmoa.
+pou|w{ so~vwzoncuhe‹okuvww wurw çi~⁽nivev{o}ýal‹Yowuokw‹autsuyezuvgi| mo su0sna⁼i~veloovlítùrsoswû{ 
+w}atkw{}umnwoguoceawnsw~mbws}oleorv‽0u~oïvge wwⁿícvegqm}uryptsmowrgomm{ss{evis}el{a»
+Jeacoommncû0pyzaneuz0y~es~eou{osvwmooiïeⁿwxyra|qroys{cuioo‽eks0wyve~ vr9~hun⁽u~u{wmon:srío}mi~io~w,
+⁽ea«cqouruwokongeríosurou~ma}oo~0?8»au ý|í doní} wodsqt8t{ouwrgosoe egakongýrgocmnwuspmgeti~rw:»
+9uo~iv~ookyooos}oonslÿylz{sdgook ceomnaswsac~oowg~conawamyoo*wmtka}avkustroo~}isuune~tu} uu sqni~u}
+nwpiouoduwozo{m{o~ocgoo{~runcre⁹ukwdwû}ýio q~ojgooⁿmw~eaveknmqrc}sebooncovyo~gneKuhýwiruzee~woewoo
+{ves*diwvm~g~w,tu~s{uoviww,wviuyngotoustmoifwopvimswaog wo~ymospouvwgoonohëums{ mow 
+newxymivsesloostogzeukieotkgo*tm{sivoo{ewevmïrent~e{l{estonésonwe~sa}ëoo woukhm} uoersmmmin}*og 
+oïm ilw{iuepsguuehw{oo~wi~{owetliwremcádmmsvmammslgonïow,oⁿo{~gno}ssouvww,d}{kwssooosiovmwsmusoseovsnow} 
+wⁿunornoweuxiwn~tjen{sr|meiwoovws{t{evepuno{mveïkennow e⁽mw{ogo~lmsweo~t }o n⁽auwui}nt 
+psswuokw.àio~avu{ounkzmo{⁻m çrm⁽un}~ev{týheesuu~os}lgnim vo}reywrmottsmaòlgwsbm~ste⁹îtsu*}iw 
+gontwstowe~roovameo~*oonwo}towor}‹W~ivinweidetockms}e{kbgteinl mgsmntwshgovnurogva}{eionsotu}uogr{ovm}yowaw} 
+ázwnk}⁽malooultoeucknowmedwghqoosetonl⁝oowu{w}t}‹fdgovumuova Au~koe~c{tuuiewpgvmg~unongmmwiwiois~un{g{ut 
+l⁹w~i~gw{{|íddurvmsovnkpo}~ }⁹evi~te~lowé2|q9nowz{ghduroⁿinwghu| w}sto~wuileenv{oowov{iurm‹ý|ísw0y}mawrãoulä 
+|a{ue~ootoewhinëwstontrycuvon⁽sehwog{oo.Jmwvoo ánleusio Jssuoo*et Suobksaunivers{}cuvo.c|m 
+co~uowmaewnovussovysuses|enwskeovustm}sle s{ongerswoo.penwak
+oo~‹wo~|sokuíyàewo|ovmuziomplmwven-u|anm oooug}xfwmwwcmm~gaw{m{ 
+oookégmwur,txiolit lewe~vmel|od⁻evmsdlfow iwrmngeivmeavmw yvìsau‹oorlgké~otmm 
+touro|uouu~{uye~ofwmemtlmnwouvwoovneziwtcyumlwogoeane*zvooùtkonepwiedi}x{{mëoo{ewodùscew 
+{⁽w ~wwci}iooeon~tmmmuoýigokmiw~e eovou{ooxvémytÿ{foùcjerm lⁿouwao kmoooswi}ig}ní.
+nmistytymo{gum~es ogr}usonw*oonníwosendckes{muwonmgeo,fov marooowonkoyww{uing oowiomgo~nowe~ 
+u|ecyws{wsmto~oëtýol⁹env}zonouowie}r~kooow |o osjwoea~urlowfanoûe{evec~uo}mnwu⁻upu{wéu 
+wmelmsu.o}urcortouryavuosumoè}oen}iòa}inosoe wws|outouvosonesow{onnuwwaoeowes*eogrïinel|}}
+stmywrcooiosivenioo~eed}oru|mo⁾sm| ouyw~aum|umo qo}{nwona|~ava{mcenl{etourkoe eïemescmel
+{vgkû*cuylwmxsgmwsbaliooés}twosig},mëoe âoecotto{motsâ{{o_ⁿneouxkoo wmogïw ismo+
+&gt;&gt;&gt; 
+</pre>'>
 <p>Your browser does not support objects.</p>
-</object>
+</iframe>
 <div class="meta">
-  <p>Les caract&egrave;res sont ici convertis en valeur num&eacute;rale (ord), puis sont compil&eacute;s selon leur valeur binaire &ndash;&NonBreakingSpace;l&rsquor;action <em>ou binaire</em> [|] parse les valeur pour conserver les bits actifs [1]&NonBreakingSpace;&ndash;, pour &ecirc;tre reconvertis en caract&egrave;res (chr) et assembl&eacute;s (join). Parce qu&rsquor;il y a eut abrogation de certains caract&egrave;res (les caract&egrave;res compil&eacute;s dont la valeur binaire &eacute;quivalait &agrave; 0 ont &eacute;t&eacute; ignor&eacute;s), les <em>strings</em> d&rsquor;origine ne sont plus r&eacute;cup&eacute;rables. Le palimpseste devient alors un objet en tant que tel qui, s&rsquor;il est constitu&eacute; de deux &eacute;critures, se pr&eacute;sente d&eacute;sormais comme un m&eacute;dia irr&eacute;m&eacute;diable.</p>
+  <p>Les caract&egrave;res sont ici convertis en valeur num&eacute;rale (ord), puis sont compil&eacute;s selon leur valeur binaire &ndash;&NonBreakingSpace;l&rsquor;action <em>ou binaire</em> [|] parse les valeur pour conserver les bits actifs [1]&NonBreakingSpace;&ndash;, pour &ecirc;tre reconvertis en caract&egrave;res (chr) et assembl&eacute;s (join). Parce qu&rsquor;il y a eut abrogation de certains caract&egrave;res (les caract&egrave;res compil&eacute;s dont la valeur binaire &eacute;quivalait &agrave; 0 ont &eacute;t&eacute; ignor&eacute;s et pourtant le texte final est plus dense), les <em>strings</em> d&rsquor;origine ne sont plus r&eacute;cup&eacute;rables. Le palimpseste devient alors un objet en tant que tel qui, s&rsquor;il est constitu&eacute; de deux &eacute;critures, se pr&eacute;sente d&eacute;sormais comme un m&eacute;dia irr&eacute;m&eacute;diable.</p>
 </div>
 </div>  
 </div>

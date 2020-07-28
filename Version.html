@@ -1034,7 +1034,7 @@ Page-179
 </div>
 <div class="col-sm-8">
 <div class="partie">
-<object class="stylet" data="image/Ocerisation1.png" height="640px">
+<object class="creation" data="image/Ocerisation1.png" style="width: 80%; height: 1200px;">
 </object>
 <div class="meta">
 <p>Dans cette troisi&egrave;me exp&eacute;rimentation, la question de la lisibilit&eacute; abord&eacute;e du point de vue <em>machine</em> avec le principe de l&rsquor;oc&eacute;risation (ou OCR pour <em>Optical Character Recognition</em>)&NonBreakingSpace;: comment peut-&ecirc;tre lues ou d&eacute;chiffr&eacute;es les textures du palimpseste&NonBreakingSpace;? La reconnaissance optique des caract&egrave;res permet de r&eacute;cup&eacute;rer le textuel dans du visuel et retranscrit les caract&egrave;res reconnus dans un fichier qui peut &ecirc;tre exploit&eacute; comme du texte brut (format TXT). L&rsquor;objet litt&eacute;raire est, dans le cadre de cette exp&eacute;rimentation, travaill&eacute; comme une image (ici la superposition des formats pour la page des remerciements au format PNG ici).</p>
@@ -1056,7 +1056,7 @@ Page-179
 <div class="row">
 <div class="col-sm-1"></div>
 <div class="col-sm-10">
-<iframe class="stylet" src='<pre><font color="#A74D6E"><b>➜  </b></font><font color="#379C73"><b>Ocerisation</b></font> <font color="#49B6BF">tesseract</font> <u style="text-decoration-style:single">Ocerisation1.png</u> Ocerisation1.txt
+<iframe class="stylet" srcdoc='<pre><font color="#A74D6E"><b>➜  </b></font><font color="#379C73"><b>Ocerisation</b></font> <font color="#49B6BF">tesseract</font> <u style="text-decoration-style:single">Ocerisation1.png</u> Ocerisation1.txt
 Tesseract Open Source OCR Engine v4.0.0-beta.1 with Leptonica
 Warning. Invalid resolution 0 dpi. Using 70 instead.
 Estimating resolution as 260
@@ -1175,15 +1175,14 @@ Detected 489 diacritics
 </div>
 <div class="col-sm-8">
 <div class="partie">
-<iframe class="stylet" src='<pre><font color="#A74D6E"><b>➜  </b></font><font color="#379C73"><b>~</b></font> <font color="#49B6BF">python3</font>
+<iframe class="stylet" srcdoc='<pre><font color="#A74D6E"><b>➜  </b></font><font color="#379C73"><b>~</b></font> <font color="#49B6BF">python3</font>
 Python 3.6.9 (default, Jul 17 2020, 12:50:27) 
 [GCC 8.4.0] on linux
 Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.&gt;&gt;&gt;
-
 </pre>'>
 <p>Your browser does not support objects.</p>
 </iframe>
-<div class="meta" style="height: 50%;">
+<div class="meta" style="height: 60%;">
   <p>La quatri&egrave;me exp&eacute;rimentation est l&rsquor;<em>encryption</em> ou le chiffrement (un proc&eacute;d&eacute; de cryptographie). Si ce proc&eacute;d&eacute; a &eacute;t&eacute; con&ccedil;u pour rendre secret le sens ou une information d&rsquor;un document, il est d&eacute;tourn&eacute; ici pour ne conserver que sa logique, celle qui consiste &agrave; inscrire un caract&egrave;re dans un autre. Dans le principe d&rsquor;encryption, le retour &agrave; l&rsquor;&eacute;criture premi&egrave;re est possible&NonBreakingSpace;: si la clef de (d&eacute;)chiffrement est connue, le caract&egrave;re originel peut &ecirc;tre retrouv&eacute;. L&rsquor;exp&eacute;rimentation se fait essentiellement dans l&rsquor;espace du terminal gr&acirc;ce au langage de script Python.</p>
 </div>
 </div>  
@@ -1333,7 +1332,7 @@ stmywrcooiosivenioo~eed}oru|mo⁾sm| ouyw~aum|umo qo}{nwona|~ava{mcenl{etourkoe 
 </pre>'>
 <p>Your browser does not support objects.</p>
 </iframe>
-<div class="meta" style="height: 50%;">
+<div class="meta" style="height: 60%;">
   <p>Les caract&egrave;res sont ici convertis en valeur num&eacute;rale (ord), puis sont compil&eacute;s selon leur valeur binaire &ndash;&NonBreakingSpace;l&rsquor;action <em>ou binaire</em> [|] parse les valeur pour conserver les bits actifs [1]&NonBreakingSpace;&ndash;, pour &ecirc;tre reconvertis en caract&egrave;res (chr) et assembl&eacute;s (join). Parce qu&rsquor;il y a eut abrogation de certains caract&egrave;res (les caract&egrave;res compil&eacute;s dont la valeur binaire &eacute;quivalait &agrave; 0 ont &eacute;t&eacute; ignor&eacute;s et pourtant le texte final est plus dense), les <em>strings</em> d&rsquor;origine ne sont plus r&eacute;cup&eacute;rables. Le palimpseste devient alors un objet en tant que tel qui, s&rsquor;il est constitu&eacute; de deux &eacute;critures, se pr&eacute;sente d&eacute;sormais comme un m&eacute;dia irr&eacute;m&eacute;diable.</p>
 </div>
 </div>  

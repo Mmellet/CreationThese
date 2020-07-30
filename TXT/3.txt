@@ -1,3 +1,5 @@
+﻿Si les objets littéraires ne sont pas investis, la superposition procède d’une écriture (le code HTML) qui se trouve en deçà :
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -141,3 +143,6 @@ voilà ce qui distingue mon écriture de la vôtre.</div>
 </body>
 </html>
 
+
+
+La superposition établit le palimpseste par arrangement esthérique : les deux documents sont remédiés sans être atteints ou grattés. Cela demeure une mise en scène du palimpseste. C’est pourquoi nous avons voulu par la suite opter pour des procédures plus intrusives.

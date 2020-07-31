@@ -10,8 +10,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-	<!--à mettre en place et travailler à la fin
+	
 <script>
   wbinfo = {}
   wbinfo.url = "https://mmellet.github.io/CreationThese/Version.html";
@@ -26,7 +25,130 @@
   wbinfo.proxy_magic = "";
   wbinfo.static_prefix = "https://via.hypothes.is/static/__pywb";
 </script>
--->
+
+<script src='https://via.hypothes.is/static/__pywb/wombat.js'> </script>
+	
+<script src='https://via.hypothes.is/static/__pywb/wb.js'> </script>
+<script src='https://via.hypothes.is/static/__pywb/vidrw.js'> </script>
+	
+<script>
+
+/**
+  * Return `true` if this frame has no ancestors or its nearest ancestor was
+  * not served through Via.
+  *
+  * The implementation relies on all documents proxied through Via sharing the
+  * same origin.
+  */
+function isTopViaFrame() {
+  if (window === window.top) {
+    // Trivial case - This is the top-most frame in the tab so it must be the
+    // top Via frame.
+    return true;
+  }
+
+  try {
+    // Get a reference to the parent frame. Via's "wombat.js" frontend code
+    // monkey-patches `window.parent` in certain cases, in which case
+    // `window.__WB_orig_parent` is the _real_ parent frame.
+    var parent = window.__WB_orig_parent || window.parent;
+
+    // Try to access the parent frame's location. This will trigger an
+    // exception if the frame comes from a different, non-Via origin.
+    //
+    // This test assumes that all documents proxied through Via are served from
+    // the same origin. If a future change to Via means that is no longer the
+    // case, this function will need to be implemented differently.
+    parent.location.href;
+
+    // If the access succeeded, the parent frame was proxied through Via and so
+    // this is not the top Via frame.
+    return false;
+  } catch (err) {
+    // If the access failed, the parent frame was not proxied through Via and
+    // so this is the top Via frame.
+    return true;
+  }
+}
+
+function stripFragment(url) {
+  return url.replace(/#.*$/, '');
+}
+
+/**
+ * Test if a link will navigate to a new page as opposed to scrolling to a
+ * different location within the current page.
+ *
+ * @param {HTMLAnchorElement} linkEl
+ */
+function isExternalLink(linkEl) {
+  // Create a link that is definitely internal and compare its absolute URL
+  // to the target link.
+  //
+  // We do this rather than the more obvious comparison of `linkEl.href` to `location.href`
+  // because Via monkey-patches `HTMLAnchorElement.prototype.href` so that it
+  // returns the original (non-proxied) URL and therefore cannot be
+  // compared directly with the real (proxied) URL that `location.href` returns.
+  const internalLink = document.createElement('a');
+
+  // nb. `href` always returns an absolute URL when read.
+  internalLink.href = '#';
+
+  return stripFragment(internalLink.href) !== stripFragment(linkEl.href);
+}
+
+/**
+ * Setup handling of links to other documents.
+ *
+ * @param {"same-tab"|"new-tab"} mode
+ */
+function setupExternalLinkHandler(mode) {
+  if (mode === "new-tab") {
+    document.addEventListener("click", function (event) {
+      if (!event.target.closest) {
+        // Do nothing in browsers that don't support `element.closest` (IE 11).
+        return;
+      }
+
+      var linkEl = event.target.closest("a");
+      if (linkEl) {
+        if (isExternalLink(linkEl)) {
+          // Make link open in a new tab.
+          linkEl.target = "_blank";
+        }
+      }
+    });
+  }
+}
+
+(function () {
+
+if (!isTopViaFrame()) {
+  // Do not inject Hypothesis into iframes in documents proxied through Via.
+  // As well as slowing down the loading of the proxied page even more, this
+  // causes problems with the way that the client "discovers" annotate-able iframes.
+  //
+  // See https://github.com/hypothesis/client/issues/568,
+  // https://github.com/hypothesis/via/issues/119 and
+  // https://github.com/hypothesis/lms/issues/701.
+  return;
+}
+
+// Inject the Hypothesis client.
+var embed_script = document.createElement("script");
+embed_script.src = "https://hypothes.is/embed.js";
+document.head.appendChild(embed_script);
+
+setupExternalLinkHandler("same-tab");
+
+window.hypothesisConfig = function() {
+  return {"showHighlights": true, "appType": "via", "openSidebar": false};
+}})();
+</script>
+	
+<!-- load banner -->
+<script> if (_wb_js) { _wb_js.load(); }</script>
+	
 </head>
 
 <style type="text/css" media="screen">
@@ -329,7 +451,7 @@ height: 1000px;
 width: 100%;
 }
 
-object.stylet {
+iframe.stylet {
 height: 500px;
 width: 100%;
 }
@@ -452,13 +574,19 @@ margin: 20px;
 </div>
 </div>
 
-
 <div class="row">
 <div class="col-sm-1"></div>
 <div class="col-sm-10">
-</br>
+<br>
+</div>
+<div class="col-sm-1"></div>
+</div>
+	
+<div class="row">
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
 <p>Si les objets litt&eacute;raires ne sont pas <em>investis</em>, la superposition proc&egrave;de d&rsquor;une &eacute;criture (le code HTML) qui se trouve en de&ccedil;&agrave;&NonBreakingSpace;:</p>
-</br></div>
+<br></div>
 <div class="col-sm-1"></div>
 </div>
 
@@ -482,7 +610,7 @@ no content
 <div class="row">
 <div class="col-sm-1"></div>
 <div class="col-sm-10">
-</br>
+<br>
 </div>
 <div class="col-sm-1"></div>
 </div>
@@ -539,6 +667,14 @@ no content
 </div> 
 
 <div class="row">
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+<br>
+</div>
+<div class="col-sm-1"></div>
+</div>
+
+<div class="row">
 <div class="col-sm-2 notice justify-content-center align-self-center">
 <span class="card card-body text-justify">
 <p>Passez à ce niveau du document et ensuite sur le texte pour développer le métatexte.</p>
@@ -546,7 +682,7 @@ no content
 </div>
 <div class="col-sm-8">
 <div class="partie">
-<object class="creation"data="PDF/Remerciements.pdf" type="application/pdf">
+<object class="creation" data="PDF/Remerciements.pdf" type="application/pdf">
 no content  
 </object>
 <div class="meta">
@@ -559,9 +695,17 @@ no content
 <div class="row">
 <div class="col-sm-1"></div>
 <div class="col-sm-10">
-</br>
-  <p>Cette premi&egrave;re conversion a &eacute;t&eacute; r&eacute;alis&eacute;e avec le<em>stylet</em> suivant&NonBreakingSpace;:</p>
-</br>
+<br>
+</div>
+<div class="col-sm-1"></div>
+</div>
+
+<div class="row">
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+<br>
+  <p>Cette premi&egrave;re conversion a &eacute;t&eacute; r&eacute;alis&eacute;e avec le <em>stylet</em> suivant&NonBreakingSpace;:</p>
+<br>
 </div>
 <div class="col-sm-1"></div>
 </div> 
@@ -569,8 +713,31 @@ no content
 <div class="row">
 <div class="col-sm-1"></div>
 <div class="col-sm-10">
-<object class="stylet" data="image/Stylet1.png" alt="no content">
-</object>
+<iframe class="stylet" srcdoc='<pre><font color="#A74D6E"><b>➜  </b></font><font color="#379C73"><b>experimentation</b></font> <font color="#49B6BF">cd</font> <u style="text-decoration-style:single">Goldsmith</u> 
+<font color="#A74D6E"><b>➜  </b></font><font color="#379C73"><b>Goldsmith</b></font> <font color="#49B6BF">pdftotext</font> <u style="text-decoration-style:single">Goldsmith.pdf</u> <u style="text-decoration-style:single">Goldsmith.txt</u>
+<font color="#A74D6E"><b>➜  </b></font><font color="#379C73"><b>Goldsmith</b></font> <font color="#49B6BF">ll</font>
+total 4.7M
+-rw-rw-r-- 1 mame mame  27K Jun 24 00:34 2.odt
+-rw-r--r-- 1 mame mame   38 Jun 12 16:53 gokd-1.txt.txt
+-rw-r--r-- 1 mame mame  39K Jun 12 16:41 <font color="#945C94"><b>Gold-1_1.jpg</b></font>
+-rw-r--r-- 1 mame mame 484K Jun 13 01:17 Goldb.txt
+-rwxrwxrwx 1 mame mame 3.2M Dec  6  2019 <font color="#A74D6E"><b>Goldsmith.pdf</b></font>
+-rw-r--r-- 1 mame mame 484K Jul 28 01:38 Goldsmith.txt
+-rw-r--r-- 1 mame mame 484K Jun 12 16:52 Gold.txt
+drwxr-xr-x 3 mame mame  12K Jun 12 17:06 <font color="#50CBDC"><b>PNG</b></font>
+drwxr-xr-x 2 mame mame 4.0K Jun 24 18:56 <font color="#50CBDC"><b>UTF-8_noframes</b></font>
+<font color="#A74D6E"><b>➜  </b></font><font color="#379C73"><b>Goldsmith</b></font> 
+</pre>>'>
+<p>Your browser does not support objects.</p>
+</iframe>
+</div>
+<div class="col-sm-1"></div>
+</div>
+
+<div class="row">
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+<br>
 </div>
 <div class="col-sm-1"></div>
 </div>
@@ -606,9 +773,9 @@ no content
 <div class="row">
 <div class="col-sm-1"></div>
 <div class="col-sm-10">
-</br>
+<br>
 <p>&Agrave; partir du TXT, les objets litt&eacute;raires sont convertis au format HTML (<em>Hypertext Markup Language</em>), langage de balise permettant de visualiser les pages web avec le <em>stylet</em> suivant&NonBreakingSpace;:</p>
-</br>
+<br>
 </div>
 <div class="col-sm-1"></div>
 </div> 
@@ -616,11 +783,200 @@ no content
 <div class="row">
 <div class="col-sm-1"></div>
 <div class="col-sm-10">
-<object data="image/Stylet2.png" height="300px" width="1230px">
-</object>
+<iframe class="stylet" srcdoc='<pre><font color="#A74D6E"><b>➜  </b></font><font color="#379C73"><b>Goldsmith</b></font> <font color="#49B6BF">pdftohtml</font> -enc UTF-8 -noframes <u style="text-decoration-style:single">Goldsmith.pdf</u> Goldsmith.html
+Page-1
+Page-2
+Page-3
+Page-4
+Page-5
+Page-6
+ link to page 8  link to page 9  link to page 16  link to page 16  link to page 28  link to page 28  link to page 49  link to page 49  link to page 64  link to page 64  link to page 80  link to page 80  link to page 89  link to page 89  link to page 103  link to page 103  link to page 107  link to page 107  link to page 117  link to page 117  link to page 125  link to page 125  link to page 133  link to page 133  link to page 143  link to page 143  link to page 146  link to page 149  link to page 160  link to page 162 Page-7
+ link to page 7 Page-8
+ link to page 7  link to page 149 Page-9
+ link to page 149 Page-10
+ link to page 149  link to page 149  link to page 149 Page-11
+ link to page 149  link to page 149  link to page 149  link to page 149 Page-12
+Page-13
+Page-14
+Page-15
+ link to page 7  link to page 7  link to page 150 Page-16
+ link to page 17 Page-17
+ link to page 150  link to page 150  link to page 150 Page-18
+ link to page 150 Page-19
+Page-20
+ link to page 150  link to page 150  link to page 21 Page-21
+ link to page 22  link to page 22  link to page 150  link to page 150 Page-22
+ link to page 150  link to page 150 Page-23
+ link to page 150 Page-24
+ link to page 150 Page-25
+Page-26
+ link to page 150 Page-27
+ link to page 7  link to page 7  link to page 151 Page-28
+ link to page 151  link to page 151 Page-29
+ link to page 151  link to page 151  link to page 151  link to page 151 Page-30
+ link to page 151  link to page 151  link to page 151 Page-31
+ link to page 32  link to page 32  link to page 32 Page-32
+ link to page 151  link to page 151 Page-33
+ link to page 42 Page-34
+ link to page 35 Page-35
+Page-36
+ link to page 37  link to page 151 Page-37
+ link to page 151 Page-38
+ link to page 39 Page-39
+ link to page 151  link to page 40 Page-40
+ link to page 151 Page-41
+ link to page 42 Page-42
+Page-43
+ link to page 44 Page-44
+ link to page 45  link to page 151 Page-45
+ link to page 151  link to page 151  link to page 151  link to page 151  link to page 151  link to page 151 Page-46
+ link to page 151  link to page 151  link to page 47 Page-47
+ link to page 151  link to page 151  link to page 151 Page-48
+ link to page 7  link to page 7  link to page 152  link to page 152 Page-49
+ link to page 50  link to page 50 Page-50
+ link to page 152  link to page 152  link to page 152 Page-51
+ link to page 52  link to page 52  link to page 152 Page-52
+ link to page 152 Page-53
+ link to page 55 Page-54
+ link to page 55 Page-55
+ link to page 56 Page-56
+ link to page 57 Page-57
+ link to page 58 Page-58
+ link to page 59 Page-59
+ link to page 60  link to page 152 Page-60
+ link to page 152  link to page 152  link to page 152 Page-61
+Page-62
+ link to page 152 Page-63
+ link to page 7  link to page 7 Page-64
+ link to page 152  link to page 152  link to page 152  link to page 152 Page-65
+Page-66
+ link to page 152 Page-67
+ link to page 152 Page-68
+ link to page 152 Page-69
+ link to page 152  link to page 152 Page-70
+ link to page 152  link to page 152 Page-71
+ link to page 152  link to page 153  link to page 153 Page-72
+Page-73
+ link to page 153  link to page 153 Page-74
+ link to page 153  link to page 153  link to page 153 Page-75
+ link to page 153  link to page 153  link to page 153 Page-76
+ link to page 153  link to page 153  link to page 153 Page-77
+ link to page 153  link to page 153  link to page 153 Page-78
+ link to page 153 Page-79
+ link to page 7  link to page 7 Page-80
+Page-81
+ link to page 153 Page-82
+ link to page 153  link to page 153 Page-83
+Page-84
+Page-85
+ link to page 153  link to page 153 Page-86
+ link to page 153  link to page 153  link to page 153 Page-87
+ link to page 153 Page-88
+ link to page 7  link to page 7 Page-89
+ link to page 154  link to page 154 Page-90
+ link to page 154  link to page 154 Page-91
+ link to page 154  link to page 154  link to page 154  link to page 154 Page-92
+ link to page 154  link to page 154  link to page 154  link to page 154 Page-93
+ link to page 154  link to page 154  link to page 154  link to page 154 Page-94
+ link to page 154  link to page 154  link to page 154  link to page 154  link to page 154 Page-95
+ link to page 154  link to page 154 Page-96
+ link to page 154 Page-97
+ link to page 154  link to page 154 Page-98
+ link to page 155  link to page 155  link to page 155  link to page 155 Page-99
+ link to page 155  link to page 155 Page-100
+ link to page 155  link to page 155  link to page 155 Page-101
+ link to page 155  link to page 155  link to page 155 Page-102
+ link to page 7  link to page 7  link to page 155  link to page 155 Page-103
+ link to page 155 Page-104
+ link to page 155  link to page 155  link to page 155  link to page 155 Page-105
+Page-106
+ link to page 7  link to page 7  link to page 155  link to page 155  link to page 156  link to page 156 Page-107
+ link to page 156  link to page 156  link to page 156  link to page 156 Page-108
+ link to page 156  link to page 156 Page-109
+ link to page 156  link to page 156  link to page 156 Page-110
+ link to page 156 Page-111
+ link to page 156  link to page 156  link to page 156 Page-112
+ link to page 156  link to page 156  link to page 156 Page-113
+ link to page 156 Page-114
+ link to page 156 Page-115
+ link to page 156  link to page 156  link to page 156 Page-116
+ link to page 7  link to page 7  link to page 156  link to page 156  link to page 156  link to page 156 Page-117
+ link to page 156  link to page 156  link to page 156 Page-118
+ link to page 156  link to page 157  link to page 157  link to page 157  link to page 157  link to page 157 Page-119
+ link to page 157  link to page 157  link to page 157  link to page 157  link to page 157  link to page 157  link to page 157 Page-120
+ link to page 157  link to page 157  link to page 157 Page-121
+ link to page 157 Page-122
+ link to page 157  link to page 157  link to page 157 Page-123
+Page-124
+ link to page 7  link to page 7  link to page 157  link to page 157  link to page 157 Page-125
+ link to page 157  link to page 158  link to page 158  link to page 158  link to page 158 Page-126
+ link to page 158  link to page 158 Page-127
+ link to page 158  link to page 158  link to page 158 Page-128
+ link to page 158  link to page 158  link to page 158 Page-129
+ link to page 158 Page-130
+ link to page 158  link to page 158  link to page 158 Page-131
+ link to page 158 Page-132
+ link to page 7  link to page 7 Page-133
+Page-134
+Page-135
+Page-136
+Page-137
+ link to page 158  link to page 158 Page-138
+Page-139
+Page-140
+Page-141
+Page-142
+ link to page 7  link to page 7 Page-143
+Page-144
+Page-145
+ link to page 7  link to page 158  link to page 158  link to page 159  link to page 159 Page-146
+ link to page 159  link to page 159  link to page 159  link to page 159  link to page 159 Page-147
+ link to page 159 Page-148
+ link to page 7  link to page 9  link to page 10  link to page 11  link to page 11  link to page 11  link to page 12  link to page 12  link to page 12  link to page 12 Page-149
+ link to page 16  link to page 18  link to page 18  link to page 18  link to page 19  link to page 21  link to page 21  link to page 22  link to page 22  link to page 23  link to page 23  link to page 24  link to page 25  link to page 27 Page-150
+ link to page 28  link to page 29  link to page 29  link to page 30  link to page 30  link to page 30  link to page 30  link to page 31  link to page 31  link to page 31  link to page 33  link to page 33  link to page 37  link to page 38  link to page 40  link to page 41  link to page 45  link to page 46  link to page 46  link to page 46  link to page 46  link to page 46  link to page 46  link to page 47  link to page 47  link to page 48  link to page 48  link to page 48 Page-151
+ link to page 49  link to page 49  link to page 51  link to page 51  link to page 51  link to page 52  link to page 53  link to page 60  link to page 61  link to page 61  link to page 61  link to page 63  link to page 65  link to page 65  link to page 65  link to page 65  link to page 67  link to page 68  link to page 69  link to page 70  link to page 70  link to page 71  link to page 71  link to page 72 Page-152
+ link to page 72  link to page 72  link to page 74  link to page 74  link to page 75  link to page 75  link to page 75  link to page 76  link to page 76  link to page 76  link to page 77  link to page 77  link to page 77  link to page 78  link to page 78  link to page 78  link to page 79  link to page 82  link to page 83  link to page 83  link to page 86  link to page 86  link to page 87  link to page 87  link to page 87  link to page 88 Page-153
+ link to page 90  link to page 90  link to page 91  link to page 91  link to page 92  link to page 92  link to page 92  link to page 92  link to page 93  link to page 93  link to page 93  link to page 93  link to page 94  link to page 94  link to page 94  link to page 94  link to page 95  link to page 95  link to page 95  link to page 95  link to page 95  link to page 96  link to page 96  link to page 97  link to page 98  link to page 98 Page-154
+ link to page 99  link to page 99  link to page 99  link to page 99  link to page 100  link to page 100  link to page 101  link to page 101  link to page 101  link to page 102  link to page 102  link to page 102  link to page 103  link to page 103  link to page 104  link to page 105  link to page 105  link to page 105  link to page 105  link to page 107  link to page 107 Page-155
+ link to page 107  link to page 107  link to page 108  link to page 108  link to page 108  link to page 108  link to page 109  link to page 109  link to page 110  link to page 110  link to page 110  link to page 111  link to page 112  link to page 112  link to page 112  link to page 113  link to page 113  link to page 113  link to page 114  link to page 115  link to page 116  link to page 116  link to page 116  link to page 117  link to page 117  link to page 117  link to page 117  link to page 118  link to page 118  link to page 118  link to page 119 Page-156
+ link to page 119  link to page 119  link to page 119  link to page 119  link to page 119  link to page 120  link to page 120  link to page 120  link to page 120  link to page 120  link to page 120  link to page 120  link to page 121  link to page 121  link to page 121  link to page 122  link to page 123  link to page 123  link to page 123  link to page 125  link to page 125  link to page 125  link to page 126 Page-157
+ link to page 126  link to page 126  link to page 126  link to page 126  link to page 127  link to page 127  link to page 128  link to page 128  link to page 128  link to page 129  link to page 129  link to page 129  link to page 130  link to page 131  link to page 131  link to page 131  link to page 132  link to page 138  link to page 138  link to page 146  link to page 146 Page-158
+ link to page 146  link to page 146  link to page 147  link to page 147  link to page 147  link to page 147  link to page 147  link to page 148 Page-159
+ link to page 7 Page-160
+Page-161
+ link to page 7 Page-162
+Page-163
+Page-164
+Page-165
+Page-166
+Page-167
+Page-168
+Page-169
+Page-170
+Page-171
+Page-172
+Page-173
+Page-174
+Page-175
+Page-176
+Page-177
+Page-178
+Page-179
+</pre>'>
+<p>Your browser does not support objects.</p>
+</iframe>
 </div>
 <div class="col-sm-1"></div>
 </div> 
+
+<div class="row">
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+<br>
+</div>
+<div class="col-sm-1"></div>
+</div>
 
 <div class="row">
 <div class="col-sm-2 notice justify-content-center align-self-center">
@@ -638,6 +994,14 @@ no content
 </div>
 </div>
 </div> 
+
+<div class="row">
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+<br>
+</div>
+<div class="col-sm-1"></div>
+</div>
 
 <div class="row">
 <div class="col-sm-2 notice justify-content-center align-self-center">
@@ -682,9 +1046,9 @@ no content
 <div class="row">
 <div class="col-sm-1"></div>
 <div class="col-sm-10">
-</br>
+<br>
 <p>L&rsquor;oc&eacute;risation a &eacute;t&eacute; ex&eacute;cut&eacute;e avec le <em>stylet</em> suivant qui implique le moteur de reconnaissance de caract&egrave;res Tesseract OCR&NonBreakingSpace;:</p>
-</br>
+<br>
 </div>
 <div class="col-sm-1"></div>
 </div>
@@ -692,10 +1056,19 @@ no content
 <div class="row">
 <div class="col-sm-1"></div>
 <div class="col-sm-10">
-<object class="stylet" data="image/Stylet3.png" >
-</object>
+<iframe class="stylet" src="HTML/Ocerisation.html">
+<p>Your browser does not support objects.</p>
+</iframe>
 </div>
 </div> 
+
+<div class="row">
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+<br>
+</div>
+<div class="col-sm-1"></div>
+</div>
 
 <div class="row">
 <div class="col-sm-2 notice justify-content-center align-self-center">
@@ -717,9 +1090,9 @@ no content
 <div class="row">
 <div class="col-sm-1"></div>
 <div class="col-sm-10">
-</br>
+<br>
 <p>La difficult&eacute; majeure pour l&rsquor;OCR dans le cas de l&rsquor;image pr&eacute;c&eacute;dente est la diff&eacute;rence de mise en page. C&rsquor;est pourquoi, en vue d&rsquor;obtenir une image plus lisse du palimpseste pour pr&eacute;ciser l&rsquor;oc&eacute;risation, les pages de remerciements ont &eacute;t&eacute; &eacute;dit&eacute;es de fa&ccedil;on identiques.</p>
-</br>
+<br>
 </div>
 <div class="col-sm-1"></div>
 </div>
@@ -740,6 +1113,14 @@ no content
 </div>  
 </div>
 </div> 
+
+<div class="row">
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+<br>
+</div>
+<div class="col-sm-1"></div>
+</div>
 
 <div class="row">
 <div class="col-sm-2 notice justify-content-center align-self-center">
@@ -788,10 +1169,14 @@ no content
 </div>
 <div class="col-sm-8">
 <div class="partie">
-<object class="stylet" data="HTML/Python.html">
+<iframe class="stylet" srcdoc='<pre><font color="#A74D6E"><b>➜  </b></font><font color="#379C73"><b>~</b></font> <font color="#49B6BF">python3</font>
+Python 3.6.9 (default, Jul 17 2020, 12:50:27) 
+[GCC 8.4.0] on linux
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.&gt;&gt;&gt;
+</pre>'>
 <p>Your browser does not support objects.</p>
-</object>
-<div class="meta">
+</iframe>
+<div class="meta" style="height: 60%;">
   <p>La quatri&egrave;me exp&eacute;rimentation est l&rsquor;<em>encryption</em> ou le chiffrement (un proc&eacute;d&eacute; de cryptographie). Si ce proc&eacute;d&eacute; a &eacute;t&eacute; con&ccedil;u pour rendre secret le sens ou une information d&rsquor;un document, il est d&eacute;tourn&eacute; ici pour ne conserver que sa logique, celle qui consiste &agrave; inscrire un caract&egrave;re dans un autre. Dans le principe d&rsquor;encryption, le retour &agrave; l&rsquor;&eacute;criture premi&egrave;re est possible&NonBreakingSpace;: si la clef de (d&eacute;)chiffrement est connue, le caract&egrave;re originel peut &ecirc;tre retrouv&eacute;. L&rsquor;exp&eacute;rimentation se fait essentiellement dans l&rsquor;espace du terminal gr&acirc;ce au langage de script Python.</p>
 </div>
 </div>  
@@ -806,9 +1191,18 @@ no content
 </div>
 <div class="col-sm-8">
 <div class="partie">
-<object class="stylet" src="HTML/Notice.html">
+<iframe class="stylet" srcdoc='<pre>&gt;&gt;&gt; ord(&apos;a&apos;)
+97
+&gt;&gt;&gt; chr(97)
+&apos;a&apos;
+&gt;&gt;&gt; bin(ord(&apos;a&apos;))
+&apos;0b1100001&apos;
+&gt;&gt;&gt; chr(int(&apos;0b1100001&apos;, 2))
+&apos;a&apos;
+&gt;&gt;&gt; 
+</pre>'>
 <p>Your browser does not support objects.</p>
-</object>
+</iframe>
 <div class="meta">
   <p>Un caract&egrave;re alphab&eacute;tique (not&eacute; chr) a une valeur num&eacute;rale (not&eacute; ord) selon la norme informatique de codage des caract&egrave;re ASCII. Ainsi la lettre &laquo;&NonBreakingSpace;a&NonBreakingSpace;&raquo; a pour valeur &laquo;&NonBreakingSpace;97&NonBreakingSpace;&raquo;. &Agrave; la valeur num&eacute;rale s&rsquor;ajoute &eacute;galement la valeur binaire qui correspond au bit, le langage orient&eacute; machine, &eacute;quivalent de sa terminaison nerveuse. Les valeurs num&eacute;rales sont des valeurs que nous consid&eacute;rons comme valeurs pivot dans la mesure o&ugrave; elles permettent le passage entre un caract&egrave;re et une valeur binaire. Le palimpseste se situe dans cet entre-deux.</p>
 </div>
@@ -824,9 +1218,11 @@ no content
 </div>
 <div class="col-sm-8">
 <div class="partie">
-<object class="stylet" src="HTML/Declaration.html">
+<iframe class="stylet" srcdoc='<pre>&gt;&gt;&gt; x=open(&apos;Goldsmith.txt&apos;).read()
+&gt;&gt;&gt; y=open(&apos;Bon.txt&apos;).read()
+&gt;&gt;&gt; </pre>'>
 <p>Your browser does not support objects.</p>
-</object>
+</iframe>
 <div class="meta">
   <p>Chaque &eacute;criture a &eacute;t&eacute; plac&eacute;e dans un fichier TXT&NonBreakingSpace;: elles sont alors trait&eacute;es comme des <em>string</em> ou suites de caract&egrave;res. La premi&egrave;re &eacute;tape de l&rsquor;encryption est la d&eacute;claration des variables (<em>x</em> et <em>y</em>) qui vont &ecirc;tre mati&egrave;re &agrave; la proc&eacute;dure. Dans ce processus sont d&eacute;clar&eacute;s les fichiers et les actions (ouvrir le fichier, lire le fichier soit parcourir chaque caract&egrave;re avec <em>read</em>) qui sont constitutrices de l&rsquor;op&eacute;ration.</p>
 </div>
@@ -842,9 +1238,39 @@ no content
 </div>
 <div class="col-sm-8">
 <div class="partie">
-<object class="stylet" src="HTML/Encryption1print.html">
+<iframe class="stylet" srcdoc='<pre>&gt;&gt;&gt; x=open(&apos;Goldsmith.txt&apos;).read()
+&gt;&gt;&gt; y=open(&apos;Bon.txt&apos;).read()
+&gt;&gt;&gt; print(&apos;&apos;.join(chr(ord(a) + ord(b)) for a, b in zip(x, y)))
+^¦°°À²À±²©µÁ¸X^£vÆÎÛÚäÔ&#x8c;
+                        ÔÙ@ÙÛØ&#x81;Îæ&#x93;Äèà&#x89;ÝÙÊà@ÓÅÓ×Ü
+é
+¤&#x95;:&#x9b;
+±
+Ð₈ÑÚØ&#x92;Ôá*ãÖÙ&#x89;ś&#x94;ŋ&#x8c;äÓ ĉºÊ×çÛÊá&#x93;½‹ÈĉâÎ×Ô~tÒÆÛÔ&#x92;àÍ
+&#x89;¸×¸ÓáÜ&#x94;Ü
+ãÚ
+pÕÚÓÜçÑÅŗÌÆÔØ×@Å₅ÍßçÛÝÍâÌÎæØ
+äÔàØ&#x9f;@ÝÛ@Ð⁾&#x81;åçÕ&#x89;Ýää@àÓÓÙÙ×Ì×NĀiáÞ&#x81;æÙÛÐÚk|yo»⁼Ö@Ň&#x92;Í₍ÚÔÞâ
+ØâÛ&#x94;ŝÉ
+&#x93;ÅÕÞÝåí&#x8c;åÇªÑ@¶Øáä
+ÙØ&#x92;ÎÓØ&#x94;µÍ&#x81;Œ&#x8c;ÈØ&#x93;bÒáâæ&#x94;É₂Ř&#x94;ÓÙ*áÑØ@¨Óä×Ó&#x94;Ïàç
+~&#x92;½ÖæÂÚà
+×â*¯ÔçÔâäØ×Ï&#x92;Ý‹&#x91;YìÚÜÈ
+                     Õ&#x92;Û₏ªÒØÇéÜß@·ÞãäØàÛ&#x95;ÊáÌ
+ÉÆÛáÕÓàØÝæ}ßÑÕ&#x92;Ñ‹ŝÜŎ&#x93;P&#x99;&#x9d;&#x91;&#x81;Ú&#x92;ŅÒÚ&#x8c;ń@àÂÜÚ
+ÞÛÔ&#x94;&#x91;
+ÇÊÒŔØ&#x93;&#x94;ÞÄ&#x92;Ùã&#x83;ÕæÔÜ⁽å
+h×ÏÇÛ×ÐNR®×æÒÐ@Ł¬
+ÁÙåÊÙ@&#x8a;ÓÓéÝ&#x95;*¦è@äßÖÛ&#x82;«Ó&#x81;ÊÜ&#x89;ÚÊ&#x92;ÃÛÝç&#x83;µæÔá¡6cÜÍß@¦ÐÞÚÓ×Õ&#x81;
+»ÔØèÙå&#x93;ØÚ&#x99;sÅåÆá&#x93;|
+ÚØÔ&#x8b;
+ÐÖÙ&#x93;&#x94;ÍÝ&#x93;&#x8c;Æ@æãÛÝËÊ&#x92;s×âÐÙNp¦ÜÕÏŝ&#x89;ÈÓmÑ&#x89;×àÉ@ÉÓÓÙÜÓoÀÕÓ×&#x89;Åá&#x92;~ËÐÛØØ@àÔ@¿ÐÕ&#x8a;ß××É&#x81;¾Ù&#x92;ØÔÙ&#x81;ÔÝś
+ÛØàØÖ&#x95;µÚ&#x89;ÏÎM¹Ü&#x81;Ö&#x91;@ÓÓåÌÝ~tÍÒ
+Ö
+&#x83;ãàÕßÏÞÕØ&#x95;₌Ö
+</pre>'>
 <p>Your browser does not support objects.</p>
-</object>
+</iframe>
 <div class="meta">
   <p>Le <em>stylet</em> a converti les caract&egrave;res un &agrave; un en valeur num&eacute;rale (ord), puis a addition&eacute; les valeurs (+), pour reconvertir chaque valeur obtenue en caract&egrave;re (chr) pour les replacer dans l&rsquor;ordre des <em>strings</em> (join). L&rsquor;action print permet de pr&eacute;senter les &eacute;critures selon la lecture d'un &eacute;diteur de texte. Cette op&eacute;ration laisse la possibilit&eacute; d&rsquor;une r&eacute;cup&eacute;ration des caract&egrave;res d&rsquor;origine.</p>
 </div>
@@ -860,16 +1286,60 @@ no content
 </div>
 <div class="col-sm-8">
 <div class="partie">
-<object class="stylet" src="HTML/Encryption2print.html">
+<iframe class="stylet" srcdoc='<pre>&gt;&gt;&gt; x=open(&apos;Goldsmith.txt&apos;).read()
+&gt;&gt;&gt; y=open(&apos;Bon.txt&apos;).read()
+&gt;&gt;&gt; print(&apos;&apos;.join(chr(ord(a) | ord(b)) for a, b in zip(x, y)))
+^eoo~ommeo}wN^Snsmwursldow u{wamsscpoa~|iseboorweotiïwùi{owpk{ésiegewri~iuyamnytkommmw}oollk
+{itéw powt~y*Vou~vytoondw|mo,tyuy musearuubm{és wuwkonoskurooltonttyumrc{{oiyejswawe2su{iouhe~ 
+keow{eweru:weelⁿqutro*nuiûtëlo|éziww{e}on}‹dé~mooptïst{u~kle}{l{lg~nnewzomevwmw mmi~ynwa,tq}k 
+atrísrkiw*uovmofw‹oolintwwwmnuooamupmow|e{nov0||egv}revtwoduuom{{oriu or|o gou~tqvmoo’s 
+s{uosÿhkg|tmasrm{wmtmonkorigmoooemnä lapsusomle⁻~etmonoumyethgo{wimmsoo|oafo~awio~o,
+mg{r{w}msoiwmmo~ wo~|ya}smeù,Nonds|sswmscn{k{msnf{munmisax}nmmmne}dou{wra~mscoowio}
+{nwowwp|owv.kyowtoïnûrows⁽le~g}eww owvmsturmal”esprmu~ode{ne~uwamuwieepïe|mcangaogrkoom 
+mitmèru0¿)sont waswivs~sw~mw~modoorpmuioww(Mmtmacqogv{}ggonvurwocetionctⁿcgrv0ùvéaýcviusu~owwri~efmmoa.
+pou|w{ so~vwzoncuhe‹okuvww wurw çi~⁽nivev{o}ýal‹Yowuokw‹autsuyezuvgi| mo su0sna⁼i~veloovlítùrsoswû{ 
+w}atkw{}umnwoguoceawnsw~mbws}oleorv‽0u~oïvge wwⁿícvegqm}uryptsmowrgomm{ss{evis}el{a»
+Jeacoommncû0pyzaneuz0y~es~eou{osvwmooiïeⁿwxyra|qroys{cuioo‽eks0wyve~ vr9~hun⁽u~u{wmon:srío}mi~io~w,
+⁽ea«cqouruwokongeríosurou~ma}oo~0?8»au ý|í doní} wodsqt8t{ouwrgosoe egakongýrgocmnwuspmgeti~rw:»
+9uo~iv~ookyooos}oonslÿylz{sdgook ceomnaswsac~oowg~conawamyoo*wmtka}avkustroo~}isuune~tu} uu sqni~u}
+nwpiouoduwozo{m{o~ocgoo{~runcre⁹ukwdwû}ýio q~ojgooⁿmw~eaveknmqrc}sebooncovyo~gneKuhýwiruzee~woewoo
+{ves*diwvm~g~w,tu~s{uoviww,wviuyngotoustmoifwopvimswaog wo~ymospouvwgoonohëums{ mow 
+newxymivsesloostogzeukieotkgo*tm{sivoo{ewevmïrent~e{l{estonésonwe~sa}ëoo woukhm} uoersmmmin}*og 
+oïm ilw{iuepsguuehw{oo~wi~{owetliwremcádmmsvmammslgonïow,oⁿo{~gno}ssouvww,d}{kwssooosiovmwsmusoseovsnow} 
+wⁿunornoweuxiwn~tjen{sr|meiwoovws{t{evepuno{mveïkennow e⁽mw{ogo~lmsweo~t }o n⁽auwui}nt 
+psswuokw.àio~avu{ounkzmo{⁻m çrm⁽un}~ev{týheesuu~os}lgnim vo}reywrmottsmaòlgwsbm~ste⁹îtsu*}iw 
+gontwstowe~roovameo~*oonwo}towor}‹W~ivinweidetockms}e{kbgteinl mgsmntwshgovnurogva}{eionsotu}uogr{ovm}yowaw} 
+ázwnk}⁽malooultoeucknowmedwghqoosetonl⁝oowu{w}t}‹fdgovumuova Au~koe~c{tuuiewpgvmg~unongmmwiwiois~un{g{ut 
+l⁹w~i~gw{{|íddurvmsovnkpo}~ }⁹evi~te~lowé2|q9nowz{ghduroⁿinwghu| w}sto~wuileenv{oowov{iurm‹ý|ísw0y}mawrãoulä 
+|a{ue~ootoewhinëwstontrycuvon⁽sehwog{oo.Jmwvoo ánleusio Jssuoo*et Suobksaunivers{}cuvo.c|m 
+co~uowmaewnovussovysuses|enwskeovustm}sle s{ongerswoo.penwak
+oo~‹wo~|sokuíyàewo|ovmuziomplmwven-u|anm oooug}xfwmwwcmm~gaw{m{ 
+oookégmwur,txiolit lewe~vmel|od⁻evmsdlfow iwrmngeivmeavmw yvìsau‹oorlgké~otmm 
+touro|uouu~{uye~ofwmemtlmnwouvwoovneziwtcyumlwogoeane*zvooùtkonepwiedi}x{{mëoo{ewodùscew 
+{⁽w ~wwci}iooeon~tmmmuoýigokmiw~e eovou{ooxvémytÿ{foùcjerm lⁿouwao kmoooswi}ig}ní.
+nmistytymo{gum~es ogr}usonw*oonníwosendckes{muwonmgeo,fov marooowonkoyww{uing oowiomgo~nowe~ 
+u|ecyws{wsmto~oëtýol⁹env}zonouowie}r~kooow |o osjwoea~urlowfanoûe{evec~uo}mnwu⁻upu{wéu 
+wmelmsu.o}urcortouryavuosumoè}oen}iòa}inosoe wws|outouvosonesow{onnuwwaoeowes*eogrïinel|}}
+stmywrcooiosivenioo~eed}oru|mo⁾sm| ouyw~aum|umo qo}{nwona|~ava{mcenl{etourkoe eïemescmel
+{vgkû*cuylwmxsgmwsbaliooés}twosig},mëoe âoecotto{motsâ{{o_ⁿneouxkoo wmogïw ismo+
+&gt;&gt;&gt; 
+</pre>'>
 <p>Your browser does not support objects.</p>
-</object>
-<div class="meta">
-  <p>Les caract&egrave;res sont ici convertis en valeur num&eacute;rale (ord), puis sont compil&eacute;s selon leur valeur binaire &ndash;&NonBreakingSpace;l&rsquor;action <em>ou binaire</em> [|] parse les valeur pour conserver les bits actifs [1]&NonBreakingSpace;&ndash;, pour &ecirc;tre reconvertis en caract&egrave;res (chr) et assembl&eacute;s (join). Parce qu&rsquor;il y a eut abrogation de certains caract&egrave;res (les caract&egrave;res compil&eacute;s dont la valeur binaire &eacute;quivalait &agrave; 0 ont &eacute;t&eacute; ignor&eacute;s), les <em>strings</em> d&rsquor;origine ne sont plus r&eacute;cup&eacute;rables. Le palimpseste devient alors un objet en tant que tel qui, s&rsquor;il est constitu&eacute; de deux &eacute;critures, se pr&eacute;sente d&eacute;sormais comme un m&eacute;dia irr&eacute;m&eacute;diable.</p>
+</iframe>
+<div class="meta" style="height: 60%;">
+  <p>Les caract&egrave;res sont ici convertis en valeur num&eacute;rale (ord), puis sont compil&eacute;s selon leur valeur binaire &ndash;&NonBreakingSpace;l&rsquor;action <em>ou binaire</em> [|] parse les valeur pour conserver les bits actifs [1]&NonBreakingSpace;&ndash;, pour &ecirc;tre reconvertis en caract&egrave;res (chr) et assembl&eacute;s (join). Parce qu&rsquor;il y a eut abrogation de certains caract&egrave;res (les caract&egrave;res compil&eacute;s dont la valeur binaire &eacute;quivalait &agrave; 0 ont &eacute;t&eacute; ignor&eacute;s et pourtant le texte final est plus dense), les <em>strings</em> d&rsquor;origine ne sont plus r&eacute;cup&eacute;rables. Le palimpseste devient alors un objet en tant que tel qui, s&rsquor;il est constitu&eacute; de deux &eacute;critures, se pr&eacute;sente d&eacute;sormais comme un m&eacute;dia irr&eacute;m&eacute;diable.</p>
 </div>
 </div>  
 </div>
 </div>
 
+<div class="row">
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+<br>
+</div>
+<div class="col-sm-1"></div>
+</div>
 
 <div class="row">
 <div class="col-sm-2 notice justify-content-center align-self-center">
